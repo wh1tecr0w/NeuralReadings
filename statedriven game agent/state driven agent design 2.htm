@@ -1,0 +1,1339 @@
+
+<!-- saved from url=(0066)http://www.ai-junkie.com/architecture/state_driven/tut_state2.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<!--<base target="_blank">--><base href="." target="_blank">
+<link rel="File-List" href="http://www.ai-junkie.com/architecture/state_driven/tut_state2_files/filelist.xml">
+<link rel="Edit-Time-Data" href="http://www.ai-junkie.com/architecture/state_driven/tut_state1_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>state driven agent design 2</title>
+</head><body bgcolor="#000066" lang="EN-US" link="blue" vlink="blue" style="tab-interval:
+.5in"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PersonName">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceType">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceName">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>mat</o:Author>
+  <o:LastAuthor>mat</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>115</o:TotalTime>
+  <o:Created>2004-09-23T09:28:00Z</o:Created>
+  <o:LastSaved>2004-09-24T17:00:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>6645</o:Words>
+  <o:Characters>37877</o:Characters>
+  <o:Company>IS</o:Company>
+  <o:Lines>315</o:Lines>
+  <o:Paragraphs>88</o:Paragraphs>
+  <o:CharactersWithSpaces>44434</o:CharactersWithSpaces>
+  <o:Version>10.6626</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="64" DLLVersion="131078"
+   NLCheck="1">1</w:ActiveWritingStyle>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+A:hover {color: red; font-weight: bold}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:silver; margin-left:0in; margin-right:0in; margin-top:0in}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:silver;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:silver;}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+p.mainbodytxt, li.mainbodytxt, div.mainbodytxt
+	{mso-style-name:mainbodytxt;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:silver;}
+p.text, li.text, div.text
+	{mso-style-name:text;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:silver;}
+p.matssourcecode, li.matssourcecode, div.matssourcecode
+	{mso-style-name:matssourcecode;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:silver;}
+p.sbbody, li.sbbody, div.sbbody
+	{mso-style-name:sbbody;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:silver;}
+p.code-white, li.code-white, div.code-white
+	{mso-style-name:code-white;
+	mso-style-parent:matssourcecode;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:white;}
+span.code-inline
+	{mso-style-name:code-inline;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	color:white;}
+span.italics
+	{mso-style-name:italics;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:#FFFFCC;
+	font-style:italic;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:202251840;
+	mso-list-template-ids:-2061752372;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:683046909;
+	mso-list-template-ids:344602876;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1894926279;
+	mso-list-template-ids:-1238311020;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1913739055;
+	mso-list-template-ids:-685343260;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman"}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta http-equiv="Content-Language" content="en-gb">
+<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+
+
+
+
+<div class="Section1">
+
+<p align="center" style="text-align:center"><a href="http://www.ai-junkie.com/"><span style="text-decoration:none;text-underline:none">
+</span></a><a target="_self" href="http://www.ai-junkie.com/">
+<img border="0" id="_x0000_i1025" src="./state driven agent design 2_files/logo.jpg" width="469" height="78"></a></p>
+
+<div class="MsoNormal" align="center" style="text-align:center">
+
+<hr size="2" width="100%" align="center">
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="font-size:16.0pt;font-family:Arial;color:#FFFFCC">The West World Project</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">As a practical
+example of how to create agents that utilize finite state machines, we are
+going to look at a game environment where agents inhabit an Old West-style gold
+mining town named West World. Initially there will only be one inhabitant — a
+gold miner named Miner Bob — but later his wife will also make an appearance.
+You will have to imagine the tumbleweeds, creakin’ mine props, and desert dust
+blowin’ in your eyes because West World is implemented as a simple text-based
+console application. Any state changes or output from state actions will be
+sent as text to the console window. I’m using this plaintext-only approach as
+it demonstrates clearly the mechanism of a finite state machine without adding
+the code clutter of a more complex environment.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">There are
+four locations in West World: a </span><span class="italics"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">goldmine</span></span><span style="font-family:Arial">, a </span><span class="italics"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">bank </span></span><span style="font-family:Arial">where Bob can deposit any nuggets he finds, a </span><span class="italics"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">saloon </span></span><span style="font-family:Arial">in which he can quench his thirst, and </span><span class="italics"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">home-sweet-home
+</span></span><span style="font-family:Arial">where he can sleep the fatigue of
+the day away. Exactly where he goes, and what he does when he gets there, is
+determined by Bob’s current state. He will change states depending on variables
+like thirst, fatigue, and how much gold he has found hacking away down in the
+gold mine.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Before we
+delve into the source code, check out the following sample output from the
+WestWorld1 executable.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;<o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="1" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:.7pt;background:black;border:outset silver 1.0pt;
+ mso-border-alt:outset silver .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber6" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset silver 1.0pt;mso-border-alt:
+  inset silver .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Ah'm&nbsp; leavin'&nbsp; the&nbsp;
+  gold&nbsp; mine&nbsp; with&nbsp; mah&nbsp; pockets&nbsp; full&nbsp; o'&nbsp;
+  sweet&nbsp; gold</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Goin'&nbsp; to&nbsp; the&nbsp; bank.&nbsp;
+  Yes&nbsp; siree</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Depositin’&nbsp; gold.&nbsp; Total&nbsp;
+  savings&nbsp; now:&nbsp; 3</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Leavin'&nbsp; the&nbsp; bank</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; gold&nbsp;
+  mine</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Ah'm&nbsp; leavin'&nbsp; the&nbsp;
+  gold&nbsp; mine&nbsp; with&nbsp; mah&nbsp; pockets&nbsp; full&nbsp; o'&nbsp;
+  sweet&nbsp; gold</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Boy,&nbsp; ah&nbsp; sure&nbsp; is&nbsp;
+  thusty!&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; saloon</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; That's&nbsp; mighty&nbsp; fine&nbsp;
+  sippin&nbsp; liquor <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Leavin'&nbsp; the&nbsp; saloon,&nbsp;
+  feelin'&nbsp; good<o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; gold&nbsp;
+  mine</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Ah'm&nbsp; leavin'&nbsp; the&nbsp;
+  gold&nbsp; mine&nbsp; with&nbsp; mah&nbsp; pockets&nbsp; full&nbsp; o'&nbsp;
+  sweet&nbsp; gold</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Goin'&nbsp; to&nbsp; the&nbsp; bank.&nbsp;
+  Yes&nbsp; siree</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Depositin'&nbsp; gold.&nbsp; Total&nbsp;
+  savings&nbsp; now:&nbsp; 4</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Leavin'&nbsp; the&nbsp; bank</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; gold&nbsp;
+  mine <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a &nbsp;nugget <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Ah'm&nbsp; leavin'&nbsp; the&nbsp;
+  gold&nbsp; mine&nbsp; with&nbsp; mah&nbsp; pockets&nbsp; full&nbsp; o'&nbsp;
+  sweet&nbsp; gold</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Boy,&nbsp; ah&nbsp; sure&nbsp; is&nbsp;
+  thusty!&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; saloon</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; That's&nbsp; mighty&nbsp; fine&nbsp;
+  sippin'&nbsp; liquor <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Leavin'&nbsp; the&nbsp; saloon,&nbsp;
+  feelin'&nbsp; good <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Walkin'&nbsp; to&nbsp; the&nbsp; gold&nbsp;
+  mine</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Pickin'&nbsp; up&nbsp; a&nbsp; nugget</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Ah'm&nbsp; leavin'&nbsp; the&nbsp;
+  gold&nbsp; mine&nbsp; with&nbsp; mah&nbsp; pockets&nbsp; full&nbsp; o'&nbsp;
+  sweet&nbsp; gold</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Goin'&nbsp; to&nbsp; the&nbsp; bank.&nbsp;
+  Yes&nbsp; siree</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Depositin'&nbsp; gold.&nbsp; Total&nbsp;
+  savings&nbsp; now:&nbsp; 5</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Woohoo!&nbsp; Rich&nbsp; enough&nbsp;
+  for&nbsp; now.&nbsp; Back&nbsp; home&nbsp; to&nbsp; mah&nbsp; li'l&nbsp; lady</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Leavin'&nbsp; the&nbsp; bank <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; Walkin'&nbsp; home <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; ZZZZ...</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; ZZZZ... <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; ZZZZ... <o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; ZZZZ...</span><span style="color:red"><o:p></o:p></span></p>
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;
+  color:red">Miner&nbsp; Bob:&nbsp; What&nbsp; a&nbsp; God-darn&nbsp;
+  fantastic&nbsp; nap!&nbsp; Time&nbsp; to&nbsp; find&nbsp; more&nbsp; gold</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">In the
+output from the program, each time you see Miner Bob change location he is
+changing state. All the other events are the actions that take place within the
+states. We’ll examine each of Miner Bob’s potential states in just a moment,
+but for now, let me explain a little about the code structure of the demo.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:10.0pt;font-family:
+Arial;color:#FFFFCC">(You can download the accompanying project files <a href="http://www.ai-junkie.com/files/westworld.zip">here</a> (24k))</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:14.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC">The BaseGameEntity
+Class</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">All
+inhabitants of West World are derived from the base class </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">BaseGameEntity</span></span><span style="font-family:Arial">. This is a simple class with a private member for
+storing an ID number. It also specifies a pure virtual member function, </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Update</span></span><span style="font-family:Arial">, which must be implemented by all subclasses. </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Update</span></span><span style="font-family:Arial"> is a function that gets called every update step and
+will be used by subclasses to update their state machine along with any other
+data that must be updated each time step. </span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">The </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">BaseGameEntity</span></span><span style="font-family:Arial"> class declaration looks like this:</span><o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber7">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">class BaseGameEntity</p>
+  <p class="code-white">{</p>
+  <p class="code-white">private:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //every entity has a unique identifying number</p>
+  <p class="code-white">&nbsp;
+  int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_ID;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this is the next valid ID. Each time a BaseGameEntity
+  is instantiated</p>
+  <p class="code-white">&nbsp; //this value is updated</p>
+  <p class="code-white">&nbsp; static int&nbsp; m_iNextValidID;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this is called within the constructor to make
+  sure the ID is set</p>
+  <p class="code-white">&nbsp; //correctly. It verifies that the value passed to
+  the method is greater</p>
+  <p class="code-white">&nbsp; //or equal to the next valid ID, before setting
+  the ID and incrementing</p>
+  <p class="code-white">&nbsp; //the next valid ID</p>
+  <p class="code-white">&nbsp; void SetID(int val);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">public:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; BaseGameEntity(int id)</p>
+  <p class="code-white">&nbsp; {</p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp; SetID(id);</p>
+  <p class="code-white">&nbsp; }</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; virtual ~BaseGameEntity(){}</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //all entities must implement an update function</p>
+  <p class="code-white">&nbsp; virtual void&nbsp; Update()=0;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID()const{return m_ID;}&nbsp; </p>
+  <p class="code-white">};</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt">&nbsp;</span></p>
+
+<p class="text" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">For reasons that will become obvious later
+<span style="color:white">[in the book]</span>, it’s very important for each
+entity in your game to have a unique identifier. Therefore, on instantiation,
+the ID passed to the constructor is tested in the <span class="code-inline"><span style="mso-bidi-font-family:Arial">SetID</span></span> method to make sure it’s
+unique. If it is not, the program will exit with an assertion failure. In the
+example given, the entities will use an enumerated value as their unique
+identifier. These can be found in the file EntityNames.h as <span class="code-inline"><span style="mso-bidi-font-family:Arial">ent_Miner_Bob</span></span>
+and <span class="code-inline"><span style="mso-bidi-font-family:Arial">ent_Elsa</span></span>.</p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:14.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC">The Miner Class</span></p>
+
+<p class="text" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">The Miner class is derived from the <span class="code-inline"><span style="mso-bidi-font-family:Arial">BaseGameEntity</span></span>
+class and contains data members representing the various attributes a <span class="code-inline"><span style="mso-bidi-font-family:Arial">Miner</span></span>
+possesses, such as its health, its level of fatigue, its position, and so
+forth. Like the troll example shown earlier, a <span class="code-inline"><span style="mso-bidi-font-family:Arial">Miner</span></span> owns a pointer to an
+instance of a <span class="code-inline"><span style="mso-bidi-font-family:Arial">State</span></span>
+class in addition to a method for changing what <span class="code-inline"><span style="mso-bidi-font-family:Arial">State</span></span> that pointer points to.</p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">class Miner : public BaseGameEntity</p>
+  <p class="code-white">{</p>
+  <p class="code-white">private:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //a pointer to an instance of a State</p>
+  <p class="code-white">&nbsp;
+  State*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m_pCurrentState;</p>
+  <p class="code-white">&nbsp; </p>
+  <p class="code-white">&nbsp; // the place where the miner is currently situated</p>
+  <p class="code-white">&nbsp;
+  location_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_Location;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //how many nuggets the miner has in his pockets</p>
+  <p class="code-white">&nbsp; int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m_iGoldCarried;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //how much money the miner has deposited in the
+  bank</p>
+  <p class="code-white">&nbsp;
+  int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m_iMoneyInBank;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //the higher the value, the thirstier the miner</p>
+  <p class="code-white">&nbsp;
+  int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m_iThirst;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //the higher the value, the more tired the miner</p>
+  <p class="code-white">&nbsp;
+  int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m_iFatigue;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">public:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; Miner(int ID);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this must be implemented</p>
+  <p class="code-white">&nbsp; void Update();</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this method changes the current state to the new
+  state</p>
+  <p class="code-white">&nbsp; void ChangeState(State* pNewState);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; /* bulk of interface omitted */</p>
+  <p class="code-white">};</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt;font-family:
+Arial">&nbsp;</span><span style="font-family:Arial">The </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner::Update</span></span><span style="font-family:Arial"> method is straightforward; it simply increments the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">m_iThirst</span></span><span style="font-family:Arial"> value before calling the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Execute</span></span><span style="font-family:Arial"> method of the current state. It looks like this:<o:p></o:p></span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">void Miner::Update()</p>
+  <p class="code-white">{</p>
+  <p class="code-white">&nbsp; m_iThirst += 1;</p>
+  <p class="code-white">&nbsp; </p>
+  <p class="code-white">&nbsp; if (m_pCurrentState)</p>
+  <p class="code-white">&nbsp; {</p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp; m_pCurrentState-&gt;Execute(this);</p>
+  <p class="code-white">&nbsp; }</p>
+  <p style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+  0in"><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;;color:white">}</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Now that
+you’ve seen how the </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">Miner</span></span><span style="font-family:Arial"> class
+operates, let’s take a look at each of the states a miner can find itself in.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:14.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC">The Miner States</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">The gold
+miner will be able to enter one of four states. Here are the names of those
+states followed by a description of the actions and state transitions that
+occur within those states:</span></p>
+
+<ul style="margin-top:0in" type="disc">
+ <li class="MsoNormal" style="margin-top:6.0pt;margin-bottom:6.0pt;mso-list:l3 level1 lfo7;
+     tab-stops:list .5in;text-autospace:none"><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-family:Arial">: If the miner is not located at the gold mine,
+     he changes location. If already at the gold mine, he digs for nuggets of
+     gold. When his pockets are full, Bob changes state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">VisitBankAndDepositGold</span></span><span style="font-family:Arial">, and if while digging he finds himself thirsty,
+     he will stop and change state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">QuenchThirst</span></span><span style="font-family:Arial">.</span></li>
+ <li class="MsoNormal" style="margin-top:6.0pt;margin-bottom:6.0pt;mso-list:l3 level1 lfo7;
+     tab-stops:list .5in;text-autospace:none"><span style="font-family:Arial">&nbsp;</span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">VisitBankAndDepositGold</span></span><span style="font-family:Arial">: In this state the miner will walk to the bank
+     and deposit any nuggets he is carrying. If he then considers himself
+     wealthy enough, he will change state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">GoHomeAnd- SleepTilRested</span></span><span style="font-family:Arial">. Otherwise he will change state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMine-
+     AndDigForNugget</span></span><span style="font-family:Arial">.</span></li>
+ <li class="MsoNormal" style="margin-top:6.0pt;margin-bottom:6.0pt;mso-list:l3 level1 lfo7;
+     tab-stops:list .5in;text-autospace:none"><span class="code-inline">GoHomeAndSleepTilRested</span><span style="font-family:Arial">: In this state the miner will return to his
+     shack and sleep until his fatigue level drops below an acceptable level.
+     He will then change state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-family:Arial">. </span></li>
+ <li class="MsoNormal" style="margin-top:6.0pt;margin-bottom:6.0pt;mso-list:l3 level1 lfo7;
+     tab-stops:list .5in;text-autospace:none"><span class="code-inline">QuenchThirst</span><span style="font-family:Arial">: If at any time the miner feels thirsty
+     (diggin’ for gold is thusty work, don’t ya know), he changes to this state
+     and visits the saloon in order to buy a whiskey. When his thirst is
+     quenched, he changes state to </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-family:Arial">.</span></li>
+</ul>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Sometimes
+it’s hard to follow the flow of the state logic from reading a text description
+like this, so it’s often helpful to pick up pen and paper and draw a </span><span class="italics"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">state
+transition diagram </span></span><span style="font-family:Arial">for your game
+agents. Figure 2.2 shows the state transition diagram for the gold miner. The
+bubbles represent the individual states and the lines between them the
+available transitions.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">A diagram
+like this is better on the eyes and can make it much easier to spot any errors
+in the logic flow.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt;font-family:
+Arial">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="margin-top:6.0pt;margin-right:0in;
+margin-bottom:6.0pt;margin-left:0in;text-align:center;text-autospace:none"><span style="font-size:5.0pt;font-family:Arial"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1028" type="#_x0000_t75" style='width:348.75pt;
+ height:249pt'>
+ <v:imagedata src="tut_state2_files/image001.jpg" o:title="StateTutorial-Figure2"/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="465" height="332" src="./state driven agent design 2_files/image002.jpg" v:shapes="_x0000_s1028"><!--[endif]--><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="margin-top:6.0pt;margin-right:0in;
+margin-bottom:6.0pt;margin-left:0in;text-align:center;text-autospace:none"><span style="font-size:8.0pt;font-family:Arial">Figure 2.2. Miner Bob’s state
+transition diagram</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:6.0pt;font-family:
+Arial">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="font-size:14.0pt;font-family:Arial;color:#FFFFCC">The State Design
+Pattern Revisited</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">You saw a brief
+description of this design pattern earlier, but it won’t hurt to recap. Each of
+a game agent’s states is implemented as a unique class and each agent holds a
+pointer to an instance of its current state. An agent also implements a </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">ChangeState</span></span><span style="font-family:Arial"> member function that can be called to facilitate the
+switching of states whenever a state transition is required. The logic for
+determining any state transitions is contained within each </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">State</span></span><span style="font-family:Arial"> class. All state classes are derived from an
+abstract base class, thereby defining a common interface. So far so good. You
+know this much already.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Earlier it
+was mentioned that it’s usually favorable for each state to have associated </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Enter</span></span><span style="font-family:Arial;color:#FFFFCC;mso-bidi-font-style:italic"> </span><span style="font-family:Arial">and </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Exit</span></span><span style="font-family:Arial;color:#FFFFCC;mso-bidi-font-style:italic"> </span><span style="font-family:Arial">actions. This permits the programmer to write logic
+that is only executed once at state entry or exit and increases the flexibility
+of an FSM a great deal. With these features in mind, let’s take a look at an
+enhanced </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">State</span></span><span style="font-family:Arial"> base class.</span><o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber10">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">class State</p>
+  <p class="code-white">{</p>
+  <p class="code-white">public:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; virtual ~State(){}</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this will execute when the state is entered</p>
+  <p class="code-white">&nbsp; virtual void Enter(Miner*)=0;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this is called by the miner’s update function
+  each update-step</p>
+  <p class="code-white">&nbsp; virtual void Execute(Miner*)=0;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this will execute when the state is exited</p>
+  <p class="code-white">&nbsp; virtual void Exit(Miner*)=0;</p>
+  <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  font-family:&quot;Courier New&quot;;color:white">}</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:6.0pt;font-family:
+Arial">&nbsp;</span><span style="font-family:Arial">These additional methods
+are only called when a </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">changes state. When a state transition occurs, the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner::ChangeState</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method first
+calls</span> <span style="font-family:Arial">the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Exit</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of the
+current state, then it assigns the new state to the current state, and finishes
+by calling the </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">Enter</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of the new state (which is now the current
+state). I think code is clearer than words in this instance, so here’s the
+listing for the </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">ChangeState</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method:</span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">void Miner::ChangeState(State* pNewState)</p>
+  <p class="code-white">{</p>
+  <p class="code-white">&nbsp; //make sure both states are valid before
+  attempting to </p>
+  <p class="code-white">&nbsp; //call their methods</p>
+  <p class="code-white">&nbsp; assert (m_pCurrentState &amp;&amp; pNewState);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //call the exit method of the existing state</p>
+  <p class="code-white">&nbsp; m_pCurrentState-&gt;Exit(this);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //change state to the new state</p>
+  <p class="code-white">&nbsp; m_pCurrentState = pNewState;</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //call the entry method of the new state</p>
+  <p class="code-white">&nbsp; m_pCurrentState-&gt;Enter(this);</p>
+  <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  font-family:&quot;Courier New&quot;;color:white">}</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt">&nbsp;</span><span style="font-family:Arial">Notice how a </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">passes the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">this</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">pointer to each
+state, enabling the state to use the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">interface to
+access any relevant data.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;<o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="1" cellpadding="0" width="60%" style="width:60.0%;mso-cellspacing:.7pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber28">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;padding:.75pt .75pt .75pt .75pt">
+  <p style="margin-top:6.75pt;margin-right:0in;margin-bottom:6.0pt;margin-left:
+  0in"><span style="font-size:10.0pt;font-family:Arial;color:white">TIP: The
+  state design pattern is also useful for structuring the main components of your
+  game flow. For example, you could have a menu state, a save state, a paused
+  state, an options state, a run state, etc.</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Each of
+the four possible states a </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">may access are
+derived from the </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">State</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">class, giving us these concrete classes: </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-family:Arial">, </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">VisitBankAndDepositGold</span></span><span style="font-family:Arial">, </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">GoHomeAndSleepTilRested</span></span><span style="font-family:Arial">, and </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">QuenchThirst</span></span><span style="font-family:Arial">. The </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner::m_pCurrentState</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">pointer is able
+to point to any of these states. When the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Update</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">is called, it
+in turn calls the </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">Execute</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of the currently active state with the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">this</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">pointer as a
+parameter. These class relationships may be easier to understand if you examine
+the simplified UML class diagram shown in Figure 2.3. (Click <a href="http://www.ai-junkie.com/appendices/uml_class_diagrams.html">here</a> for an introduction to
+UML class diagrams)</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Each
+concrete state is implemented as a singleton object. This is to ensure that
+there is only one instance of each state, which agents share (those of you
+unsure of what a singleton is, please read</span><span style="font-family:Arial;
+color:white"> <a href="http://www.ai-junkie.com/appendices/singleton.html">this</a></span><span style="font-family:Arial">). Using singletons makes the design more efficient
+because they remove the need to allocate and deallocate memory every time a
+state change is made. This is particularly important if you have many agents
+sharing a complex FSM and/or you are developing for a machine with limited
+resources.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:7.0pt;font-family:
+Arial">&nbsp;</span></p>
+
+<div align="center">
+
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="background:white;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td valign="top" style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" align="center" style="margin-top:6.0pt;margin-right:0in;
+  margin-bottom:6.0pt;margin-left:0in;text-align:center;text-autospace:none"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1029" type="#_x0000_t75" style='width:459pt;height:317.25pt'>
+ <v:imagedata src="tut_state2_files/image003.emz" o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="612" height="423" src="./state driven agent design 2_files/image004.gif" v:shapes="_x0000_s1029"><!--[endif]--></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" align="center" style="margin-top:6.0pt;margin-right:0in;
+margin-bottom:6.0pt;margin-left:0in;text-align:center;text-autospace:none"><span style="font-size:8.0pt;font-family:Arial">Figure 2.3. UML class diagram for
+Miner Bob’s state machine implementation</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><o:p>&nbsp;</o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="1" cellpadding="0" width="90%" style="width:90.0%;mso-cellspacing:.7pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber27">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:
+  6.0pt;margin-left:0in;text-autospace:none"><b><span style="font-size:10.0pt;
+  font-family:Arial;color:white">NOTE&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span style="font-size:10.0pt;font-family:Arial;color:white">I prefer to use
+  singletons for the states for the reasons I’ve already given, but there is
+  one drawback. Because they are shared between clients, singleton states are
+  unable to make use of their own local, agent-specific data. For instance, if
+  an agent uses a state that when entered should move it to an arbitrary
+  position, the position cannot be stored in the state itself (because the
+  position may be different for each agent that is using the state). Instead,
+  it would have to be stored somewhere externally and be accessed by the state
+  via the agent’s interface. This is not really a problem if your states are
+  accessing only one or two pieces of data, but if you find that the states you
+  have designed are repeatedly accessing lots of external data, it’s probably
+  worth considering disposing of the singleton design and writing a few lines
+  of code to manage the allocation and deallocation of state memory.</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:13.0pt;font-family:
+Arial">&nbsp;</span><span style="font-size:8.0pt"><br>
+</span><span style="font-size:8.0pt;font-family:Arial">&nbsp;</span><span style="font-family:Arial">Okay, let’s see how everything fits together by
+examining the complete code for one of the miner states.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span class="code-inline"><b style="mso-bidi-font-weight:normal"><span style="font-size:13.5pt;font-family:Arial;color:#FFFFCC">The </span></b></span>
+<b><st1:place>
+<st1:placename><span class="code-inline"><font size="4" face="Arial" color="#FFFFCC">EnterMineAndDigForNugget</font></span></st1:placename><font size="4"><span class="code-inline"><font face="Arial" color="#FFFFCC"> </font> </span></font>
+<st1:placetype><span class="code-inline">
+<font size="4" face="Arial" color="#FFFFCC">State</font></span></st1:placetype></st1:place></b><span class="code-inline"><b style="mso-bidi-font-weight:normal"><span style="font-family:Arial;color:#FFFFCC"><o:p></o:p></span></b></span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span class="code-inline"><b style="mso-bidi-font-weight:normal"><span style="font-family:Arial;color:#FFFFCC"><o:p>&nbsp;</o:p></span></b></span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:1.0in;margin-bottom:
+6.0pt;margin-left:1.0in;text-autospace:none"><i><span style="font-size:10.5pt;
+color:white">In this state the miner should change location to be at the gold
+mine. Once at the gold mine he should dig for gold until his pockets are full,
+when he should change state to </span></i><span style="font-size:10.5pt;
+font-family:&quot;Courier New&quot;;color:white">VisitBankAndDepositNugget</span><i><span style="font-size:10.5pt;color:white">.If the miner gets thirsty while digging
+he should change state to </span></i><span style="font-size:10.5pt;font-family:
+&quot;Courier New&quot;;color:white">QuenchThirst</span><span style="font-family:Arial;
+color:white">.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">Because
+concrete states simply implement the interface defined in the virtual base
+class </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">State</span></span><span style="font-family:Arial">, their declarations are very straightforward:</span><o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber16">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">class EnterMineAndDigForNugget : public State</p>
+  <p class="code-white">{</p>
+  <p class="code-white">private:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; EnterMineAndDigForNugget(){}</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; /* copy ctor and assignment op omitted */</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">public:</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //this is a singleton</p>
+  <p class="code-white">&nbsp; static EnterMineAndDigForNugget* Instance();</p>
+  <p class="code-white">&nbsp; </p>
+  <p class="code-white">&nbsp; virtual void Enter(Miner* pMiner);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; virtual void Execute(Miner* pMiner);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; virtual void Exit(Miner* pMiner);</p>
+  <p style="margin:0in;margin-bottom:.0001pt">};</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt">&nbsp;</span><span style="font-family:Arial">As you can see, it’s just a formality. Let’s take a
+look at each of the methods in turn.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:6.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><b><i><span style="font-family:Arial;color:#FFFFCC">EnterMineAndDigForNugget::Enter</span></i></b></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:6.0pt;font-family:
+Arial">&nbsp;</span><span style="font-family:Arial">The code for the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Enter</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">is as follows:</span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">void EnterMineAndDigForNugget::Enter(Miner* pMiner)</p>
+  <p class="code-white">{</p>
+  <p class="code-white">&nbsp; //if the miner is not already located at the
+  goldmine, he must</p>
+  <p class="code-white">&nbsp; //change location to the gold mine</p>
+  <p class="code-white">&nbsp; if (pMiner-&gt;Location() != goldmine)</p>
+  <p class="code-white">&nbsp; {</p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp; cout &lt;&lt; "\n" &lt;&lt;
+  GetNameOfEntity(pMiner-&gt;ID()) &lt;&lt; ": " </p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt;
+  "Walkin' to the goldmine";</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp; pMiner-&gt;ChangeLocation(goldmine);</p>
+  <p class="code-white">&nbsp; }</p>
+  <p style="margin:0in;margin-bottom:.0001pt">}</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt">&nbsp;</span><span style="font-family:Arial">This method is called when a miner first enters the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><b><span style="font-size:10.5pt"> </span></b><span style="font-family:Arial">state. It
+ensures that the gold miner is located at the gold mine.</span> <span style="font-family:Arial">An agent stores its location as an enumerated type
+and the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">ChangeLocation</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method changes
+this value to switch locations. </span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><b><i><span style="font-family:Arial;color:#FFFFCC">EnterMineAndDigForNugget::Execute</span></i></b></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">The </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Execute</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method is a
+little more complicated and contains logic that can change a miner’s state.
+(Don’t forget that </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">Execute</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">is the method called each update step from </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner::Update</span></span><span style="font-family:Arial">.)</span><o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber18">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">void EnterMineAndDigForNugget::Execute(Miner* pMiner)</p>
+  <p class="code-white">{&nbsp; </p>
+  <p class="code-white">&nbsp; //the miner digs for gold until he is carrying in
+  excess of MaxNuggets. </p>
+  <p class="code-white">&nbsp; //If he gets thirsty during his digging he stops work
+  and </p>
+  <p class="code-white">&nbsp; //changes state to go to the saloon for a beer.</p>
+  <p class="code-white">&nbsp; pMiner-&gt;AddToGoldCarried(1);</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //digging is hard work</p>
+  <p class="code-white">&nbsp; pMiner-&gt;IncreaseFatigue();</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; cout &lt;&lt; "\n" &lt;&lt;
+  GetNameOfEntity(pMiner-&gt;ID()) &lt;&lt; ": " </p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt;
+  "Pickin' up a nugget";</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //if enough gold mined, go and put it in the bank</p>
+  <p class="code-white">&nbsp; if (pMiner-&gt;PocketsFull())</p>
+  <p class="code-white">&nbsp; {</p>
+  <p class="code-white">&nbsp;
+  &nbsp;&nbsp;pMiner-&gt;ChangeState(VisitBankAndDepositGold::Instance());</p>
+  <p class="code-white">&nbsp; }</p>
+  <p class="code-white">&nbsp;</p>
+  <p class="code-white">&nbsp; //if thirsty go and get a beer</p>
+  <p class="code-white">&nbsp; if (pMiner-&gt;Thirsty())</p>
+  <p class="code-white">&nbsp; {</p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp;
+  pMiner-&gt;ChangeState(QuenchThirst::Instance());</p>
+  <p class="code-white">&nbsp; }</p>
+  <p style="margin:0in;margin-bottom:.0001pt">}</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:5.0pt">&nbsp;</span><span style="font-family:Arial">Note here how the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner::ChangeState</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method is
+called using </span><span class="code-inline"><span style="mso-bidi-font-family:
+&quot;Times New Roman&quot;">QuenchThirst</span></span><span style="font-family:Arial">’s
+or </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">VisitBankAndDepositGold</span></span><span style="font-family:Arial">’s </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Instance</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">member, which
+provides a pointer to the unique instance of that class.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;mso-outline-level:1;text-autospace:none"><span style="color:#FFFFCC">&nbsp;</span><b><i><span style="font-family:Arial;
+color:#FFFFCC">EnterMineAndDigForNugget::Exit</span></i></b></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">The </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Exit</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">method of </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">EnterMineAndDigForNugget</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">outputs a
+message telling us that the gold miner is leaving the mine.</span><o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="90%" style="width:90.0%;background:navy;border-collapse:collapse;border:none;
+ mso-border-alt:outset #111111 .75pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" id="AutoNumber19">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td width="100%" style="width:100.0%;border:inset #111111 1.0pt;mso-border-alt:
+  inset #111111 .75pt;padding:.75pt .75pt .75pt .75pt">
+  <p class="code-white">void EnterMineAndDigForNugget::Exit(Miner* pMiner)</p>
+  <p class="code-white">{</p>
+  <p class="code-white">&nbsp; cout &lt;&lt; "\n" &lt;&lt;
+  GetNameOfEntity(pMiner-&gt;ID()) &lt;&lt; ": " </p>
+  <p class="code-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; "Ah'm leavin'
+  the goldmine with mah pockets full o' sweet gold";</p>
+  <p style="margin:0in;margin-bottom:.0001pt">}</p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">I hope an
+examination of the preceding three methods helps clear up any confusion you may
+have been experiencing and that you can now see how each state is able to
+modify the behavior of an agent or effect a transition into another state. You
+may find it useful at this stage to load up the WestWorld1 project into your
+IDE and scan the code. In particular, check out all the states in
+MinerOwnedStates.cpp and examine the </span><span class="code-inline"><span style="mso-bidi-font-family:&quot;Times New Roman&quot;">Miner</span></span><span style="font-size:9.5pt"> </span><span style="font-family:Arial">class to
+familiarize yourself with its member variables. Above all else, make sure you
+understand how the state design pattern works before you read any further. If
+you are a little unsure, please take the time to go over the previous text
+until you feel comfortable with the concept.</span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-family:Arial">You have
+seen how the use of the state design pattern provides a very flexible mechanism
+for state-driven agents. It’s extremely easy to add additional states as and
+when required. Indeed, should you so wish, you can switch an agent’s entire state
+architecture for an alternative one. This can be useful if you have a very
+complicated design that would be better organized as a collection of several
+separate smaller state machines. For example, the state machine for a
+first-person shooter (FPS) like Unreal 2 tends to be large and complex. When
+designing the AI for a game of this sort you may find it preferable to think in
+terms of several smaller state machines representing functionality like “defend
+the flag” or “explore map,” which can be switched in and out when appropriate.
+The state design pattern makes this easy to do.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<div class="MsoNormal" align="center" style="text-align:center">
+
+<hr size="2" width="100%" align="center">
+
+</div>
+
+<p align="center" style="text-align:center;mso-outline-level:1"><b><font face="Arial" color="#FFFFFF">
+<a target="_self" href="http://www.ai-junkie.com/architecture/state_driven/tut_state1.html">1</a>&nbsp;&nbsp; 2&nbsp;&nbsp;
+<a target="_self" href="http://www.ai-junkie.com/architecture/state_driven/tut_state3.html">3</a>&nbsp;&nbsp;
+<a target="_self" href="http://www.ai-junkie.com/index.html">Home</a>&nbsp; </font></b></p>
+
+<p align="center" style="text-align:center">&nbsp;</p>
+
+</div>
+
+
+
+</o:smarttagtype></o:smarttagtype></o:smarttagtype></o:smarttagtype></body></html>

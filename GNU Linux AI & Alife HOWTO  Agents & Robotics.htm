@@ -1,0 +1,1429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- saved from url=(0047)http://www.tldp.org/HOWTO/AI-Alife-HOWTO-6.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta name="GENERATOR" content="LinuxDoc-Tools 0.9.21">
+ <title>GNU/Linux AI &amp; Alife HOWTO: Agents &amp; Robotics</title>
+ <link href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-7.html" rel="next">
+ <link href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-5.html" rel="previous">
+ <link href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6" rel="contents">
+</head>
+<body>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-7.html">Next</a>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-5.html">Previous</a>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6">Contents</a>
+<hr>
+<h2><a name="Agents"></a> <a name="Agents &amp; Robotics"></a> <a name="s6">6.</a> <a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6">Agents &amp; Robotics</a>    </h2>
+
+
+<p>Software brains for computers that do stuff. Everythin from fun and
+games to data mining to physical robotics. This is a great hobbiest
+area of AI with many areas of interest to pursue. I've broken it down
+loosely into 2 sections. AI for purely software based agents and that
+for embodied agents (even if only simulated).</p>
+
+
+<h2><a name="Software Agents"></a> <a name="ss6.1">6.1</a> <a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6.1">Software Agents</a>
+        </h2>
+
+
+<p>Also known as intelligent software agents or just agents, this
+area of AI research deals with simple applications of small
+programs that aid the user in his/her work. They can be mobile
+(able to stop their execution on one machine and resume it on
+another) or static (live in one machine). They are usually
+specific to the task (and therefore fairly simple) and meant
+to help the user much as an assistant would.</p>
+<p>
+</p><dl>
+<p>
+<a name="2APL"></a> </p>
+<dt><b>2APL</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://apapl.sourceforge.net/">http://apapl.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>2APL (pronounced as double-a-p-l) is an agent-oriented programming
+language that facilitates the implementation of multi-agent systems. At
+the multi-agent level, it provides programming constructs to specify a
+multi-agent system in terms of a set of individual agents, a set of
+environments in which they can perform actions, and the access relation
+between the individual agents and the environments. At the individual
+agent level, it provides programming constructs to implement cognitive
+agents based on the BDI architecture.</p>
+
+<p>
+<a name="3APL"></a> </p>
+</dd><dt><b>3APL</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.cs.uu.nl/3apl/">http://www.cs.uu.nl/3apl/</a></li>
+<li>Wikipedia entry: 
+<a href="http://en.wikipedia.org/wiki/3APL">http://en.wikipedia.org/wiki/3APL</a></li>
+<li>Mobile version: 
+<a href="http://www.cs.uu.nl/3apl-m/">http://www.cs.uu.nl/3apl-m/</a></li>
+</ul>
+<p></p>
+<p>3APL is a programming language for implementing cognitive agents. It
+provides programming constructs for implementing agents' beliefs,
+goals, basic capabilities (such as belief updates, external actions, or
+communication actions) and a set of practical reasoning rules through
+which agents' goals can be updated or revised. The 3APL programs are
+executed on the 3APL platform. Each 3APL program is executed by means
+of an interpreter that deliberates on the cognitive attitudes of that
+agent.</p>
+
+<p>
+<a name="Agent"></a> </p>
+</dd><dt><b>Agent</b></dt><dd><p>
+</p><ul>
+<li>FTP site: 
+<a href="http://www.cpan.org/modules/by-category/23_Miscellaneous_Modules/Agent/">http://www.cpan.org/modules/by-category/23_Miscellaneous_Modules/Agent/</a></li>
+</ul>
+<p></p>
+<p>The Agent is a prototype for an Information Agent system. It is
+both platform and language independent, as it stores contained
+information in simple packed strings. It can be packed and shipped
+across any network with any format, as it freezes itself in its
+current state.</p>
+
+<p>
+<a name="agentTool"></a> </p>
+</dd><dt><b>agentTool</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://agenttool.cis.ksu.edu/">http://agenttool.cis.ksu.edu/</a></li>
+</ul>
+<p></p>
+<p>agentTool is a Eclipse-based graphical development environment to help
+users analyze, design, and implement multiagent systems.  It is
+designed to support the highly tailorable Organization-based Multiagent
+Systems Engineering (O-MaSE) methodology. agentTool currently supports
+all O-MaSE models including the Goal Model, Agent Model, Role Model,
+Organization Model, Protocol Model, Plan Model, Capability-Action
+Model, Domain Model, and Policy Model.</p>
+
+<p>
+<a name="Aglets"></a> </p>
+</dd><dt><b>Aglets Workbench</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.trl.ibm.com/aglets/index_e.htm">http://www.trl.ibm.com/aglets/index_e.htm</a></li>
+</ul>
+<p></p>
+<p>An aglet is a Java object that can move from one host on the
+Internet to another.  That is, an aglet that executes on one host can
+suddenly halt execution, dispatch to a remote host, and resume
+execution there. When the aglet moves, it takes along its program code
+as well as its state (data). A built-in security mechanism makes it
+safe for a computer to host untrusted aglets. The Java Aglet API
+(J-AAPI) is a proposed public standard for interfacing aglets and
+their environment. J-AAPI contains methods for initializing an aglet,
+message handling, and dispatching, retracting,
+deactivating/activating, cloning, and disposing of the aglet. J-AAPI
+is simple, flexible, and stable. Application developers can write
+platform-independent aglets and expect them to run on any host that
+supports J-AAPI.</p>
+
+<p>
+<a name="AJA"></a> </p>
+</dd><dt><b>AJA</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://home.arcor.de/michal.badonsky/AJA/">http://home.arcor.de/michal.badonsky/AJA/</a></li>
+</ul>
+<p></p>
+<p>AJA (Adaptable Java Agents) consists of two programming languages.
+HADL (Higher Agent Definition Language) is a higher-level language used
+for the description of the main agent parts. Java+ is the lower-level
+language used for the programming of the agent parts defined in HADL.
+It is actually Java enriched with the constructs for accessing
+higher-level agent parts defined in HADL.</p>
+
+<p>
+<a name="A.L.I.C.E."></a> </p>
+</dd><dt><b>A.L.I.C.E.</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.alicebot.org/">http://www.alicebot.org/</a></li>
+<li>Other AIML implementations:
+<a href="http://pyaiml.sourceforge.net/">http://pyaiml.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>The ALICE software implements AIML (Artificial Intelligence Markup
+Language), a non-standard evolving markup language for creating chat
+robots. The primary design feature of AIML is minimalism. Compared with
+other chat robot languages, AIML is perhaps the simplest. The pattern
+matching language is very simple, for example permitting only one
+wild-card ('*') match character per pattern. AIML is an XML language,
+implying that it obeys certain grammatical meta-rules. The choice of
+XML syntax permits integration with other tools such as XML editors.
+Another motivation for XML is its familiar look and feel, especially to
+people with HTML experience.</p>
+
+<p>
+<a name="APRIL"></a> </p>
+</dd><dt><b>APRIL</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://sourceforge.net/projects/networkagent/">http://sourceforge.net/projects/networkagent/</a></li>
+</ul>
+<p></p>
+<p>APRIL is a symbolic programming language that is designed for writing
+mobile, distributed and agent-based systems especially in an Internet
+environment. It has advanced features such as a macro sub-language,
+asynchronous message sending and receiving, code mobility, pattern
+matching, higher-order functions and strong typing. The language is
+compiled to byte-code which is then interpreted by the APRIL
+runtime-engine.  APRIL now requires the InterAgent Communications Model
+(ICM) to be installed before it can be installed. [Ed. ICM can be found
+at the same web site]</p>
+
+<p>
+<a name="Ara"></a> </p>
+</dd><dt><b>Ara</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://wwwagss.informatik.uni-kl.de/Projekte/Ara/index_e.html">http://wwwagss.informatik.uni-kl.de/Projekte/Ara/index_e.html</a></li>
+</ul>
+<p></p>
+<p>Ara is a platform for the portable and secure execution of
+mobile agents in heterogeneous networks. Mobile agents in this
+sense are programs with the ability to change their host machine
+during execution while preserving their internal state. This
+enables them to handle interactions locally which otherwise had
+to be performed remotely. Ara's specific aim in comparison to
+similar platforms is to provide full mobile agent functionality
+while retaining as much as possible of established programming
+models and languages.</p>
+
+<p>
+<a name="Bee-gent"></a> </p>
+</dd><dt><b>Bee-gent</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.toshiba.co.jp/rdc/beegent/download/download.htm">http://www.toshiba.co.jp/rdc/beegent/download/download.htm</a></li>
+<li>FAQ: 
+<a href="http://www.toshiba.co.jp/rdc/beegent/faq/faq.htm">http://www.toshiba.co.jp/rdc/beegent/faq/faq.htm</a></li>
+</ul>
+<p></p>
+<p>Bee-gent is a new type of development framework in that it is a 100%
+pure agent system. As opposed to other systems which make only some use
+of agents, Bee-gent completely "Agentifies" the communication that
+takes place between software applications. The applications become
+agents, and all messages are carried by agents. Thus, Bee-gent allows
+developers to build flexible open distributed systems that make optimal
+use of existing applications.</p>
+
+<p>
+<a name="Bond"></a> </p>
+</dd><dt><b>Bond</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://bond.cs.ucf.edu/">http://bond.cs.ucf.edu/</a></li>
+</ul>
+<p></p>
+<p>Bond is a Java based distributed object system and agent framework. It
+implements a message based middleware and associated services like
+directory, persistence, monitoring and security. Bond allows to easily
+build multi agent, distributed applications. Another application of
+Bond will be a Virtual Laboratory supporting data annotation and
+metacomputing.</p>
+
+<p>
+<a name="Cougaar"></a> </p>
+</dd><dt><b>Cougaar</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.cougaar.org/">http://www.cougaar.org/</a></li>
+</ul>
+<p></p>
+<p>Cougaar is java-based architecture for the construction of large-scale
+distributed agent-based applications.  It is the product of a
+multi-year DARPA research project into large scale agent systems and
+includes not only the core architecture but also a variety of
+demonstration, visualization and management components to simplify the
+development of complex, distributed applications. [Yet another java
+based agent system -- ed.]</p>
+
+<p>
+<a name="D&#39;Agent"></a> </p>
+</dd><dt><b>D'Agent (was AGENT TCL)</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://agent.cs.dartmouth.edu/software/agent2.0/">http://agent.cs.dartmouth.edu/software/agent2.0/</a></li>
+</ul>
+<p></p>
+<p>A transportable agent is a program that can migrate from machine
+to machine in a heterogeneous network.  The program chooses when and
+where to migrate.  It can suspend its execution at an arbitrary point,
+transport to another machine and resume execution on the new machine.
+For example, an agent carrying a mail message migrates first to a
+router and then to the recipient's mailbox.  The agent can perform
+arbitrarily complex processing at each machine in order to ensure that
+the message reaches the intended recipient.</p>
+
+<p>
+<a name="DIET Agents"></a> </p>
+</dd><dt><b>DIET Agents</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://diet-agents.sourceforge.net/">http://diet-agents.sourceforge.net</a></li>
+</ul>
+<p></p>
+<p>DIET Agents is a lightweight, scalable and robust multi-agent platform
+in Java. It is especially suitable for rapidly developing P2P prototype
+applications and/or adaptive, distributed applications that use
+bottom-up, nature-inspired techniques.</p>
+
+<p>
+<a name="FishMarket"></a> </p>
+</dd><dt><b>FishMarket</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.iiia.csic.es/Projects/fishmarket/newindex.html">http://www.iiia.csic.es/Projects/fishmarket/newindex.html</a></li>
+</ul>
+<p></p>
+<p>FM - The FishMarket project conducted at the Artificial Intelligence
+Research Institute (IIIA-CSIC) attempts to contribute in that direction
+by developing FM, an agent-mediated electronic auction house which has
+been evolved into a test-bed for electronic auction markets. The
+framework, conceived and implemented as an extension of FM96.5 (a
+Java-based version of the Fishmarket auction house), allows to define
+trading scenarios based on fish market auctions (Dutch auctions). FM
+provides the framework wherein agent designers can perform controlled
+experimentation in such a way that a multitude of experimental market
+scenarios--that we regard as tournament scenarios due to the
+competitive nature of the domain-- of varying degrees of realism and
+complexity can be specified, activated, and recorded; and trading
+(buyer and seller) heterogeneous (human and software) agents compared,
+tuned and evaluated.</p>
+
+<p>
+<a name="Grasshopper"></a> </p>
+</dd><dt><b>Grasshopper</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.grasshopper.de/">http://www.grasshopper.de/</a></li>
+</ul>
+<p></p>
+<p>Another Java agent system. Full featured and actively developed.
+Commercial, but free. Historically targeted at embedded systems.</p>
+
+<p>
+<a name="Hive"></a> </p>
+</dd><dt><b>Hive</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://hive.sourceforge.net/">http://hive.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>Hive is a Java software platform for creating distributed applications.
+Using Hive, programmers can easily create systems that connect and use
+data from all over the Internet. At its heart, Hive is an environment
+for distributed agents to live, communicating and moving to fulfill
+applications. We are trying to make the Internet alive.</p>
+
+<p>
+<a name="ICM"></a> </p>
+</dd><dt><b>ICM</b></dt><dd><p>
+</p><ul>
+<li>SourceForge site: 
+<a href="http://sourceforge.net/projects/networkagent/">http://sourceforge.net/projects/networkagent/</a></li>
+</ul>
+<p></p>
+<p>The Inter-Agent Communication Model (ICM) is a communication mechanism
+that can be used for sending messages between agents in an asynchronous
+fashion. Its intended application area is as a transportation mechanism
+for agent communication languages (ACLs), such as KQML and FIPA's ACL.</p>
+
+<p>
+<a name="Jacomma"></a> </p>
+</dd><dt><b>Jacomma</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://jacomma.sourceforge.net/">http://jacomma.sourceforge.net/</a></li>
+<li>SourceForge site: 
+<a href="http://sourceforge.net/projects/jacomma/">http://sourceforge.net/projects/jacomma/</a></li>
+</ul>
+<p></p>
+<p>Jacomma is an agent development platform/framework for developing
+distributed, mobile, and reactive information agents with heterogeneous
+communication capabilities, in Java and JPython.</p>
+<p>Jacomma provides a development framework and an execution environment,
+which sits on top of the Inter-Agent Communication Model
+infrastructure. The ICM defines a communication protocol, a store and
+forward messaging architecture, and low level communication
+infrastructure for message exchange.  Communication is truly
+asynchronous, based on TCP sockets.</p>
+<p>ICM has an entry in this howto, or you can find it via a link off the
+site.</p>
+
+<p>
+<a name="Jade"></a> </p>
+</dd><dt><b>Jade</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://sharon.cselt.it/projects/jade/">http://sharon.cselt.it/projects/jade/</a></li>
+</ul>
+<p></p>
+<p>JADE (Java Agent DEvelopment Framework) is a software framework fully
+implemented in Java language. It simplifies the implementation of
+multi-agent systems through a middle-ware that claims to comply with
+the FIPA specifications and through a set of tools that supports the
+debugging and deployment phase. The agent platform can be distributed
+across machines (which not even need to share the same OS) and the
+configuration can be controlled via a remote GUI. The configuration can
+be even changed at run-time by moving agents from one machine to
+another one, as and when required.</p>
+
+<p>
+<a name="JAM Agent"></a> </p>
+</dd><dt><b>JAM Agent</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.marcush.net/IRS/irs_downloads.html">http://www.marcush.net/IRS/irs_downloads.html</a></li>
+</ul>
+<p></p>
+<p>JAM supports both top-down, goal-based reasoning and bottom-up
+data-driven reasoning. JAM selects goals and plans based on maximal
+priority if metalevel reasoning is not used, or user-developed
+metalevel reasoning plans if they exist. JAM's conceptualization of
+goals and goal achievement is more classically defined (UMPRS is more
+behavioral performance-based than truly goal-based) and makes the
+distinction between plans to achieve goals and plans that simply encode
+behaviors. Goal-types implemented include achievement (attain a
+specified world state), maintenance (re-attain a specified world
+state), and performance. Execution of multiple simultaneous goals are
+supported, with suspension and resumption capabilities for each goal
+(i.e., intention) thread. JAM plans have explicit precondition and
+runtime attributes that restrict their applicability, a postcondition
+attribute, and a plan attributes section for specifying 
+plan/domain-specific plan features. Available plan constructs include:
+sequencing, iteration, subgoaling, atomic (i.e., non-interruptable)
+plan segments, n-branch deterministic and non-deterministic conditional
+execution, parallel execution of multiple plan segments, goal-based or
+world state-based synchronization, an explicit failure-handling
+section, and Java primitive function definition through building it
+into JAM as well as the invocation of predefined (i.e., legacy) class
+members via Java's reflection capabilities without having to build it
+into JAM.</p>
+
+<p>
+<a name="JASA"></a> </p>
+</dd><dt><b>JASA</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.csc.liv.ac.uk/~sphelps/jasa">http://www.csc.liv.ac.uk/~sphelps/jasa</a></li>
+<li>Alt Web site: 
+<a href="http://sourceforge.net/projects/jasa/">http://sourceforge.net/projects/jasa/</a></li>
+</ul>
+<p></p>
+<p>JASA is a high performance auction simulator suitable for conducting
+experiments in agent-based computational economics.  It implements
+various auction mechanisms, trading strategies and experiments
+described in the computational economics literature, and as the
+software matures we hope that it will become a repository for reference
+implementations of commonly used mechanisms, strategies and learning
+algorithms.</p>
+
+<p>
+<a name="Jason"></a> </p>
+</dd><dt><b>Jason</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://jason.sourceforge.net/">http://jason.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>A Java-based interpreter for an extended version of AgentSpeak. Unlike
+other BDI (Beliefs-Desires-Intentions) agent tools, Jason implements
+the operational semantics of AgentSpeak, a BDI logic programming
+language extensively discussed in the literature. It is available as
+Open Source under GNU LGPL.</p>
+
+<p>
+<a name="JATLite"></a> </p>
+</dd><dt><b>JATLite</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://java.stanford.edu/">http://java.stanford.edu/</a></li>
+</ul>
+<p></p>
+<p>JATLite is providing a set of java packages which makes easy to
+build multi-agent systems using Java. JATLite provides only
+light-weight, small set of packages so that the developers can
+handle all the packages with little efforts. For flexibility
+JATLite provides four different layers from abstract to Router
+implementation. A user can access any layer we are
+providing. Each layer has a different set of assumptions. The
+user can choose an appropriate layer according to the
+assumptions on the layer and user's application. The
+introduction page contains JATLite features and the set of
+assumptions for each layer.</p>
+
+<p>
+<a name="JATLiteBeans"></a> </p>
+</dd><dt><b>JATLiteBeans</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://waitaki.otago.ac.nz/JATLiteBean/">http://waitaki.otago.ac.nz/JATLiteBean/</a></li>
+</ul>
+<p></p>
+<p>
+</p><ul>
+<li>Improved, easier-to-use interface to JATLite features
+including KQML message parsing, receiving, and sending.
+            </li>
+<li>Extensible architecture for message handling and agent
+"thread of control" management 
+            </li>
+<li>Useful functions for parsing of simple KQML message content
+            </li>
+<li>JATLiteBean supports automatic advertising of agent
+capabilities to facilitator agents 
+        </li>
+<li>Automatic, optional, handling of the "forward" performative
+        </li>
+<li>Generic configuration file parser
+        </li>
+<li>KQML syntax checker
+        </li>
+</ul>
+<p></p>
+
+<p>
+<a name="Java Agent Template"></a> </p>
+</dd><dt><b>Java(tm) Agent Template</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www-cdr.stanford.edu/ABE/JavaAgent.html">www-cdr.stanford.edu/ABE/JavaAgent.html</a></li>
+</ul>
+<p></p>
+<p>The JAT provides a fully functional template, written entirely in
+the Java language, for constructing software agents which communicate
+peer-to-peer with a community of other agents distributed over the
+Internet. Although portions of the code which define each agent are
+portable, JAT agents are not migratory but rather have a static
+existence on a single host. This behavior is in contrast to many other
+"agent" technologies. (However, using the Java RMI, JAT agents could
+dynamically migrate to a foreign host via an agent resident on that
+host).  Currently, all agent messages use KQML as a top-level protocol
+or message wrapper. The JAT includes functionality for dynamically
+exchanging "Resources", which can include Java classes (e.g. new
+languages and interpreters, remote services, etc.), data files and
+information inlined into the KQML messages.</p>
+
+<p>
+<a name="lyntin"></a> </p>
+</dd><dt><b>lyntin</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://lyntin.sourceforge.net/">lyntin.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>Lyntin is an extensible Mud client and framework for the creation of
+autonomous agents, or bots, as well as mudding in general. Lyntin is
+centered around Python, a dynamic, object-oriented, and fun programming
+language and based on TinTin++ a lovely mud client.</p>
+
+<p>
+<a name="Mole"></a> </p>
+</dd><dt><b>Mole</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://mole.informatik.uni-stuttgart.de/">mole.informatik.uni-stuttgart.de/</a></li>
+</ul>
+<p></p>
+<p>Mole is an agent system supporting mobile agents programmed in
+Java.  Mole's agents consist of a cluster of objects, which have
+no references to the outside, and as a whole work on tasks given
+by the user or another agent. They have the ability to roam a
+network of "locations" autonomously. These "locations" are an
+abstraction of real, existing nodes in the underlying
+network. They can use location-specific resources by
+communicating with dedicated agents representing these
+services. Agents are able to use services provided by other
+agents and to provide services as well.</p>
+
+<p>
+<a name="Narval"></a> </p>
+</dd><dt><b>Narval</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.logilab.org/">www.logilab.org</a></li>
+</ul>
+<p></p>
+<p>Narval is the acronym of "Network Assistant Reasoning with a Validating
+Agent Language". It is a personal network assistant based on artificial
+intelligence and agent technologies. It executes recipes (sequences of
+actions) to perform tasks. It is easy to specify a new action using XML
+and to implement it using Python.  Recipes can be built and debugged
+using a graphical interface.</p>
+
+<p>
+<a name="NeL"></a> </p>
+</dd><dt><b>NeL</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.nevrax.org/">www.nevrax.org</a></li>
+</ul>
+<p></p>
+<p>NeL is actually a game development library (for massive multi-player
+games), but I'm including it here as it (will) include a fairly
+sizable AI library. Here's a blurb from the whitepaper:</p>
+<p>The purpose of the AI library is to provide a pragmatic approach to
+creating a distributed agents platform. Its focus is agents; individual
+entities that communicate regardless of location, using an
+action-reaction model.</p>
+
+<p>
+<a name="OAA"></a> </p>
+</dd><dt><b>OAA</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.ai.sri.com/~oaa/">www.ai.sri.com/~oaa/</a></li>
+</ul>
+<p></p>
+<p>The Open Agent Architecture is a framework in which a community of
+software agents running on distributed machines can work together on
+tasks assigned by human or non-human participants in the community.
+Distributed cooperation and high-level communication are two ideas
+central to the foundation of the OAA.</p>
+<p>It defines an interagent communication language and supports multiple
+platforms and programming languages.</p>
+
+<p>
+<a name="OpenCV"></a> </p>
+</dd><dt><b>OpenCV</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://opencvlibrary.sourceforge.net/">http://opencvlibrary.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>OpenCV (Open Source Computer Vision) is a library of programming
+functions mainly aimed at real time computer vision.</p>
+<p>Example applications of the OpenCV library are Human-Computer
+Interaction (HCI); Object Identification, Segmentation and Recognition;
+Face Recognition; Gesture Recognition; Motion Tracking, Ego Motion,
+Motion Understanding; Structure From Motion (SFM); and Mobile Robotics.</p>
+
+<p>
+<a name="OpenCog"></a> </p>
+</dd><dt><b>OpenCog</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.opencog.org/">http://www.opencog.org/</a></li>
+</ul>
+<p></p>
+<p>The Open Cognition Framework (OpenCog) is software for the
+collaborative development of safe and beneficial Artificial General
+Intelligence.</p>
+<p>OpenCog provides research scientists and software developers with a
+common platform to build and share artificial intelligence programs.
+The framework includes:</p>
+<p>
+</p><ul>
+<li>a flexible and highly optimized in-memory database for
+knowledge representation,</li>
+<li>a plug-in architecture for cognitive algorithms and a cognitive
+process scheduler,</li>
+<li>a built-in LISP-like programming language, and</li>
+<li>other components to support artificial intelligence research
+and development. </li>
+</ul>
+<p></p>
+
+<p>
+<a name="OpenSteer"></a> </p>
+</dd><dt><b>OpenSteer</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://opensteer.sourceforge.net/">opensteer.sourceforge.net</a></li>
+</ul>
+<p></p>
+<p>OpenSteer is a C++ library to help build steering behaviors for
+autonomous characters in games and animation. OpenSteer provides an app
+which displays predefined demos of steering behaviors. You can
+prototype, visualize and debug your own as a plug-in.</p>
+
+<p>
+<a name="ORTS"></a> </p>
+</dd><dt><b>ORTS</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="https://skatgame.net/mburo/orts/">https://skatgame.net/mburo/orts/</a></li>
+</ul>
+<p></p>
+<p>ORTS is a programming environment for studying real-time AI problems
+such as pathfinding, dealing with imperfect information, scheduling,
+and planning in the domain of RTS games. These games are fast-paced and
+very popular. Furthermore, the current state of RTS game AI is bleak
+which is mainly caused by the lack of planning and learning - areas in
+which humans are currently much better than machines. Therefore, RTS
+games make an ideal test-bed for real-time AI research. Unfortunately,
+commercial RTS games are closed software which prevents researchers
+from connecting remote AI modules to them. Furthermore, commercial RTS
+games are based on peer-to-peer technology - which in a nutshell runs
+the entire simulation on all player machines and just hides part of the
+game state from the players. By tampering with the client software it
+is possible to reveal the entire game state and thereby gain an unfair
+advantage. We feel that this is unacceptable for playing games on the
+internet. We therefore started the ORTS project to create a free
+software system that lets people and machines play fair RTS games. The
+communication protocol is public and all source code and artwork is
+freely available. Users can connect whatever client software they like.
+This is made possible by a server/client architecture in which only the
+currently visible parts of the game state are sent to the players. This
+openness leads to new and interesting possibilities ranging from
+on-line tournaments of autonomous AI players to gauge their playing
+strength to hybrid systems in which human players use sophisticated
+GUIs which allow them to delegate tasks to AI helper modules of
+increasing performance.</p>
+
+<p>
+<a name="Penguin!"></a> </p>
+</dd><dt><b>Penguin!</b></dt><dd><p>
+</p><ul>
+<li>FTP site: 
+<a href="http://www.cpan.org/modules/by-category/23_Miscellaneous_Modules/Penguin/FSG/">http://www.cpan.org/modules/by-category/23_Miscellaneous_Modules/Penguin/FSG/</a></li>
+</ul>
+<p></p>
+<p>Penguin is a Perl 5 module. It provides you with a set of functions which
+allow you to:
+</p><ul>
+<li>send encrypted, digitally signed Perl code to a remote machine
+to be executed.</li>
+<li>receive code and, depending on who signed it, execute it in an
+arbitrarily secure, limited compartment.</li>
+</ul>
+
+The combination of these functions enable direct Perl coding of
+algorithms to handle safe internet commerce, mobile
+information-gathering agents, "live content" web browser helper
+apps, distributed load-balanced computation, remote software
+update, distance machine administration, content-based
+information propagation, Internet-wide shared-data applications,
+network application builders, and so on.<p></p>
+
+<p>
+<a name="Ps-i"></a> </p>
+</dd><dt><b>Ps-i</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://ps-i.sourceforge.net/">ps-i.sourceforge.net</a></li>
+</ul>
+<p></p>
+<p>Ps-i is an environment for running agent-based simulations. It is
+cross-platform, with binaries available for Win32. Features include: </p>
+<p>
+</p><ul>
+<li>declarative language for model specification</li>
+<li>industry standard Tcl/Tk scripting
+with built-in routine optimization, speculative evaluation
+and xf86 JIT compiler users can create complex models without
+sacrificing perfomance </li>
+<li>user friendly interface </li>
+<li>save and restore program runs </li>
+<li>change model parameters on the fly </li>
+<li>data visualization: field display with multiple agent shapes and
+color, statistics window, agent viewer, routine browser and
+highlight agents tool </li>
+</ul>
+<p></p>
+
+<p>
+<a name="Pyro"></a> </p>
+</dd><dt><b>Pyro</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://pyrorobotics.org/">http://pyrorobotics.org/</a></li>
+</ul>
+<p></p>
+<p>Pyro is a library, environment, graphical user interface, and low-level
+drivers to explore AI and robotics using the Python language. It works
+with many real robotics platforms and simulators. Extensive algorithms
+including behavior-based, vision (motion tracking, blobs, etc.),
+learning (back-propagation, self-organizing maps, etc.), evolutionary,
+and more.</p>
+
+<p>
+<a name="Quackle"></a> </p>
+</dd><dt><b>Quackle</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.quackle.org/">http://www.quackle.org/</a></li>
+<li>Alt Web site: 
+<a href="http://web.mit.edu/jasonkb/www/quackle/">http://web.mit.edu/jasonkb/www/quackle/</a></li>
+<li>Alt Web site: 
+<a href="http://sourceforge.net/projects/quackle">http://sourceforge.net/projects/quackle</a></li>
+</ul>
+<p></p>
+<p>Quackle is a world-class crossword game artificial intelligence and
+analysis tool. It includes a move generator, simulator, and Qt-based
+user interface and can be used with any board layout, alphabet,
+lexicon, and tile distribution.</p>
+
+<p>
+<a name="Recast"></a> </p>
+</dd><dt><b>Recast</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://code.google.com/p/recastnavigation/">http://code.google.com/p/recastnavigation/</a></li>
+</ul>
+<p></p>
+<p>Recast is state of the art navigation mesh construction toolset for
+games.</p>
+<p>
+</p><ul>
+<li>It is automatic, which means that you can throw any level
+geometry at it and you will get robust mesh out</li>
+<li>It is fast which means swift turnaround times for level
+designers</li>
+<li>It is open source so it comes with full source and you can
+customize it to your hearts content.</li>
+</ul>
+<p></p>
+<p>The Library is free for commercial use and open source under the ZLib
+License.</p>
+<p>Recast is accompanied with Detour, path-finding and spatial reasoning
+toolkit. You can use any navigation mesh with Detour, but of course the
+data generated with Recast fits perfectly.</p>
+<p>Detour offers simple static navigation mesh which is suitable for many
+simple cases, as well as tiled navigation mesh which allows you to plug
+in and out pieces of the mesh. The tiled mesh allows to create systems
+where you stream new navigation data in and out as the player
+progresses the level, or you may regenerate tiles as the world changes. </p>
+
+<p>
+<a name="Remembrance Agents"></a> </p>
+</dd><dt><b>Remembrance Agents</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.remem.org/">www.remem.org</a></li>
+</ul>
+<p></p>
+<p>Remembrance Agents are a set of applications that watch over a user's
+shoulder and suggest information relevant to the current situation.
+While query-based memory aids help with direct recall, remembrance
+agents are an augmented associative memory.  For example, the
+word-processor version of the RA continuously updates a list of
+documents relevant to what's being typed or read in an emacs buffer.
+These suggested documents can be any text files that might be relevant
+to what you are currently writing or reading.  They might be old emails
+related to the mail you are currently reading, or abstracts from papers
+and newspaper articles that discuss the topic of your writing.</p>
+
+<p>
+<a name="SimAgent"></a> </p>
+</dd><dt><b>SimAgent</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.cs.bham.ac.uk/research/projects/poplog/packages/simagent.html">www.cs.bham.ac.uk/research/projects/poplog/packages/simagent.html</a></li>
+</ul>
+<p></p>
+<p>The SimAgent toolkit provides a range of resources for research and
+teaching related to the development of interacting agents in
+environments of various degrees and kinds of complexity. It can be run
+as a pure simulation tool, or installed in a robot with a sufficiently
+powerful on-board computer, e.g. running linux. It was originally
+developed to support exploratory research on human-like intelligent
+agents, but has also been used for student projects developing a
+variety of interactive games and simulations.</p>
+
+<p>
+<a name="spyse"></a> </p>
+</dd><dt><b>spyse</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://spyse.sf.net/">spyse.sf.net</a></li>
+<li>Alt Web site: 
+<a href="http://zope.org/Members/drapmeyer/spyse">zope.org/Members/drapmeyer/spyse</a></li>
+</ul>
+<p></p>
+<p>spyse is a development framework and platform for building multi-agent
+systems using the Python programming language. A multi-agent system
+(MAS) combines concepts from distributed computing and artificial
+intelligence.  Agents are autonomously reasoning software entities that
+can collaborate (or compete) in order to achieve a (common) goal. By
+cooperating they create emergent behaviour in the system (distributed
+artificial intelligence). The architecture of a MAS is specified in the
+FIPA standard.</p>
+<p>Spyse provides multiple means for reasoning (BDI logics, CLIPS expert
+shell, etc.) and communicating locally and remotely.</p>
+<p>Each agent has its own thread of control. Agents within and among
+instances of the platform communicate by exchanging messages based on
+ontologies. Spyse makes use of the Web Ontology Language (OWL) defined
+for the Semantic Web.</p>
+
+<p>
+<a name="TKQML"></a> </p>
+</dd><dt><b>TKQML</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.csee.umbc.edu/tkqml/">www.csee.umbc.edu/tkqml/</a> </li>
+</ul>
+<p></p>
+<p>TKQML is a KQML application/addition to Tcl/Tk, which allows Tcl
+based systems to communicate easily with a powerful agent
+communication language.</p>
+
+<p>
+<a name="Tocoma Project"></a> </p>
+</dd><dt><b>The Tocoma Project</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.tacoma.cs.uit.no/">www.tacoma.cs.uit.no/</a></li>
+</ul>
+<p></p>
+<p>An agent is a process that may migrate through a computer network
+in order to satisfy requests made by clients. Agents are an attractive
+way to describe network-wide computations.</p>
+<p>The TACOMA project focuses on operating system support for agents and
+how agents can be used to solve problems traditionally addressed by
+operating systems. We have implemented a series of prototype systems
+to support agents.</p>
+<p>TACOMA Version 1.2 is based on UNIX and TCP. The system supports
+agents written in C, Tcl/Tk, Perl, Python, and Scheme (Elk). It is
+implemented in C. This TACOMA version has been in public domain since
+April 1996.</p>
+<p>We are currently focusing on heterogeneity, fault-tolerance, security
+and management issues. Also, several TACOMA applications are under
+construction. We implemented StormCast 4.0, a wide-area network
+weather monitoring system accessible over the internet, using TACOMA
+and Java. We are now in the process of evaluating this application,
+and plan to build a new StormCast version to be completed by June
+1997.</p>
+
+<p>
+<a name="UMPRS Agent"></a> </p>
+</dd><dt><b>UMPRS Agent</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.marcush.net/IRS/">http://www.marcush.net/IRS/</a></li>
+</ul>
+<p></p>
+<p>UMPRS supports top-down, goal-based reasoning and selects goals and
+plans based on maximal priority. Execution of multiple simultaneous
+goals are supported, with suspension and resumption capabilities for
+each goal (i.e., intention) thread. UMPRS plans have an integrated
+precondition/runtime attribute that constrain their applicability.
+Available plan constructs include: sequencing, iteration, subgoaling,
+atomic (i.e., non-interruptable) blocks, n-branch deterministic
+conditional execution, explicit failure-handling section, and C++
+primitive function definition.</p>
+
+<p>
+<a name="WebMate"></a> </p>
+</dd><dt><b>WebMate</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.cs.cmu.edu/~softagents/webmate/">http://www.cs.cmu.edu/~softagents/webmate/</a></li>
+</ul>
+<p></p>
+
+<p>WebMate is a personal agent for World-Wide Web browsing and
+searching. It accompanies you when you travel on the internet
+and provides you what you want. </p>
+<p>Features include:
+</p><ul>
+<li>Searching enhancement, including parallel search, searching
+keywords refinement using our relevant keywords extraction technology,
+relevant feedback, etc.
+</li>
+<li>Browsing assistant, including learning your current interesting,
+recommending you new URLs according to your profile and selected
+resources, monitoring bookmarks of Netscape or IE, sending the current
+browsing page to your friends, etc.
+</li>
+<li>Offline browsing, including downloading the following pages from
+the current page for offline browsing.
+</li>
+<li>Filtering HTTP header, including recording http header and all
+the transactions between your browser and WWW servers, etc.
+</li>
+<li>Checking the HTML page to find the errors or dead links,  etc.
+</li>
+<li>Programming in Java, independent of operating system, runing in
+multi-thread.
+</li>
+</ul>
+<p></p>
+
+</dd></dl>
+<p></p>
+
+<h2><a name="Robotics and Simulators"></a> <a name="ss6.2">6.2</a> <a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6.2">Robotics and Simulators</a>
+        </h2>
+
+
+<p>From fun battling robot games to full robot control systems. The idea is
+physical agents in the real world, or at least their control programming.</p>
+<p>
+</p><dl>
+<p>
+<a name="BattleBots"></a> </p>
+<dt><b>BattleBots</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.bluefire.nu/battlebots/">www.bluefire.nu/battlebots/</a></li>
+</ul>
+<p></p>
+<p>AI programming game where you design the bot by selecting hardware and
+programming its CPU, then competing with other bots. Competitions can
+have teams and special rules for a game. </p>
+<p>The hardware for use in your bot includes weapons, engine, scanners,
+CPU, etc. The programming lauguage is dependent on the CPU type and is
+similar to an assembly language. </p>
+
+<p>
+<a name="Cadaver"></a> </p>
+</dd><dt><b>Cadaver</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.erikyyy.de/cadaver/">www.erikyyy.de/cadaver/</a></li>
+</ul>
+<p></p>
+<p>Cadaver is a simulated world of cyborgs and nature in realtime.  The
+battlefield consists of forests, grain, water, grass, carcass (of
+course) and lots of other things. The game server manages the game and
+the rules.  You start a server and connect some clients.  The clients
+communicate with the server using a very primitive protocol.  They can
+order cyborgs to harvest grain, attack enemies or cut forest.  The game
+is not intended to be played by humans!  There is too much to control.
+Only for die-hards: Just telnet to the server and you can enter
+commands by hand.  Instead the idea is that you write artificial  
+intelligence clients to beat the other artificial intelligences.  You
+can choose a language (and operating system) of your choice to do that
+task.  It is enough to write a program that communicates on standard
+input and standard output channels.  Then you can use programs like
+"socket" to connect your clients to the server.  It is NOT needed to
+write TCP/IP code, although i did so :) The battle shall not be boring,
+and so there is the so called spyboss client that displays the action
+graphically on screen.</p>
+
+<p>
+<a name="Carmen"></a> </p>
+</dd><dt><b>Carmen</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://carmen.sourceforge.net/">http://carmen.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>CARMEN, the Carnegie Mellon Robot Navigation Toolkit. CARMEN is an
+open-source collection of software for mobile robot control. CARMEN is
+modular software designed to provide basic navigation primatives
+including: base and sensor control, logging, obstacle avoidance,
+localization, path planning, and mapping. </p>
+
+<p>
+<a name="CLARAty"></a> </p>
+</dd><dt><b>CLARAty</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://claraty.jpl.nasa.gov/man/overview/">http://claraty.jpl.nasa.gov/man/overview/</a></li>
+</ul>
+<p></p>
+<p>CLARAty is an integrated framework for reusable robotic software. It
+defines interfaces for common robotic functionality and integrates
+multiple implementations of any given functionality. Examples of such
+capabilities include pose estimation, navigation, locomotion and
+planning. In addition to supporting multiple algorithms, it provides
+adaptations to multiple robotic platforms.</p>
+<p>This is a public release of the some of the code used in the Mars rover
+projects at NASA. It is under a free for non-commercial use licence and
+consists of large number of modules and algorithms along with extensive
+documentation.</p>
+
+<p>
+<a name="GNU Robots"></a> </p>
+</dd><dt><b>GNU Robots</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.gnu.org/software/robots/">http://www.gnu.org/software/robots/</a></li>
+</ul>
+<p></p>
+<p>GNU Robots is a game/diversion where you construct a program for a
+little robot, then watch him explore a world. The world is
+filled with baddies that can hurt you, objects that you can bump into,
+and food that you can eat. The goal of the game is to collect as
+many prizes as possible before are killed by a baddie or you run out of
+energy. Robots can be written in Guile scheme or using a GUI.</p>
+
+<p>
+<a name="Infon Battle Arena"></a> </p>
+</dd><dt><b>Infon Battle Arena</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://infon.dividuum.de/">http://infon.dividuum.de/</a></li>
+<li>Web site: 
+<a href="https://github.com/dividuum/infon">https://github.com/dividuum/infon</a></li>
+</ul>
+<p></p>
+<p>Infon Battle Arena is a networked multiplayer real-time programming
+game featuring little creatures fighting for food. You upload your
+Creature Code (written in Lua) to a game server using a telnet
+Interface. The game server then runs your code. The graphical client
+can be used to watch running games or replay recorded games.</p>
+
+<p>
+<a name="Khepera Sim"></a> </p>
+</dd><dt><b>Khepera Simulator</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://diwww.epfl.ch/w3lami/team/michel/khep-sim/">http://diwww.epfl.ch/w3lami/team/michel/khep-sim/</a></li>
+</ul>
+<p></p>
+<p>Khepera Simulator is a public domain software package written by
+<a href="http://diwww.epfl.ch/w3lami/team/michel/">Olivier         MICHEL</a> during the preparation of his Ph.D. thesis, at the Laboratoire
+I3S, URA 1376 of CNRS and University of Nice-Sophia Antipolis, France.
+It allows to write your own controller for the mobile robot Khepera
+using C or C++ languages, to test them in a simulated environment and
+features a nice colorful X11 graphical interface. Moreover, if you own
+a Khepera robot, it can drive the real robot using the same control
+algorithm. It is mainly oriented toward to researchers studying
+autonomous agents.</p>
+
+<p>
+<a name="MRPT"></a> </p>
+</dd><dt><b>MRPT</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://babel.isa.uma.es/mrpt/index.php/Main_Page">http://babel.isa.uma.es/mrpt/index.php/Main_Page</a></li>
+</ul>
+<p></p>
+<p>The Mobile Robot Programming Toolkit (MRPT) is an extensive,
+cross-platform, and open source C++ library aimed to help robotics
+researchers to design and implement algorithms in the fields of
+Simultaneous Localization and Mapping (SLAM), computer vision, and
+motion planning (obstacle avoidance).</p>
+
+<p>
+<a name="Nero"></a> </p>
+</dd><dt><b>Nero</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.nerogame.org/">http://www.nerogame.org/</a></li>
+</ul>
+<p></p>
+<p>Neuro-Evolving Robotic Operatives, or NERO for short, is a unique
+computer game that lets you play with adapting intelligent agents
+hands-on. Evolve your own robot army by tuning their artificial brains
+for challenging tasks, then pit them against your friends' teams in
+online competitions!</p>
+<p>The goals of the project are (1) to demonstrate the power of
+state-of-the-art machine learning technology, (2) to create an engaging
+game based on it, and (3) to provide a robust and challenging
+development and benchmarking domain for AI researchers.</p>
+<p>Closed source but free to download. They are working on OpenNERO which
+will be open source and more intended as a research platform.</p>
+
+<p>
+<a name="Orca"></a> </p>
+</dd><dt><b>Orca</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://orca-robotics.sourceforge.net/">http://orca-robotics.sourceforge.net/</a></li>
+<li>Web site: 
+<a href="https://github.com/naderman/orca-robotics">https://github.com/naderman/orca-robotics</a></li>
+</ul>
+<p></p>
+<p>Orca is an open-source framework for developing component-based robotic
+systems. It provides the means for defining and developing the
+building-blocks which can be pieced together to form arbitrarily
+complex robotic systems, from single vehicles to distributed sensor
+networks.</p>
+
+<p>
+<a name="Player"></a> </p>
+</dd><dt><b>Player</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://playerstage.sourceforge.net/">http://playerstage.sourceforge.net/</a></li>
+<li>Player wiki: 
+<a href="http://playerstage.sourceforge.net/wiki/Player">http://playerstage.sourceforge.net/wiki/Player</a></li>
+</ul>
+<p></p>
+<p>Player is a device server that provides a powerful, flexible interface
+to a variety of sensors and actuators (e.g., robots). Because Player
+uses a TCP socket-based client/server model, robot control programs can
+be written in any programming language and can execute on any computer
+with network connectivity to the robot. In addition, Player supports
+multiple concurrent client connections to devices, creating new
+possibilities for distributed and collaborative sensing and control.</p>
+
+<p>
+<a name="RealTimeBattle"></a> </p>
+</dd><dt><b>RealTimeBattle</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://realtimebattle.sourceforge.net/">http://realtimebattle.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>RealTimeBattle is a programming game, in which robots controlled by
+programs are fighting each other. The goal is to destroy the enemies,
+using the radar to examine the environment and the cannon to shoot.</p>
+<p>
+</p><ul>
+<li>Game progresses in real time, with the robot programs
+running as child processes to RealTimeBattle.</li>
+<li>The robots communicate with the main program using the
+standard input and output.</li>
+<li>Robots can be constructed in almost any programming language.</li>
+<li>Maximum number of robots can compete simultaneously.</li>
+<li>A simple messaging language is used for communication, which
+makes it easy to start constructing robots.</li>
+<li>Robots behave like real physical object.</li>
+<li>You can create your own arenas.</li>
+<li>Highly configurable.</li>
+</ul>
+<p></p>
+
+<p>
+<a name="Robocode"></a> </p>
+</dd><dt><b>Robocode</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://robocode.sourceforge.net/">http://robocode.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>A java based robot combat programming game. It provides a simple API
+and class framework. It is designed as a means of learning Java and is
+easy to start using while not constraining the programmer from more
+advanced techniques. It has a built in security manager for running
+other peoples robots in a safe way.</p>
+
+<p>
+<a name="Robodeb"></a> </p>
+</dd><dt><b>Robodeb</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.transterpreter.org/robodeb/">http://www.transterpreter.org/robodeb/</a></li>
+</ul>
+<p></p>
+<p>Robodeb is a complete robotics simulation environment for teaching
+concurrency and parallelism. It provides a unique environment for
+exploring concurrency and robotics. It provides a complete IDE for the
+occam-pi programming language, and leverages the Transterpreter, our
+portable and flexible runtime for the language. This combination is
+critical, as it provides a principled interface to the Player/Stage
+API, a set of widely used libraries for controlling the Pioneer3
+robotics platform.</p>
+
+<p>
+<a name="RobotFlow"></a> </p>
+</dd><dt><b>RobotFlow</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://robotflow.sourceforge.net/">http://robotflow.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>RobotFlow is a mobile robotics tookit based on the
+<a href="http://flowdesigner.sourceforge.net/">FlowDesigner</a>
+project. FlowDesigner is a data-flow oriented architecture, similar to
+Simulink (Matlab) or Labview that is free (LGPL) and versatile. The
+visual programming interface provided in the FlowDesigner project will
+help people to better visualize &amp; understand what is really happening
+in the robot's control loops, sensors, actuators, by using graphical
+probes and debugging in real-time.</p>
+
+<p>
+<a name="RoboTournament"></a> </p>
+</dd><dt><b>RoboTournament</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://robotournament.sourceforge.net/">http://robotournament.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>RoboTournament is a RoboRally inspired game where players program their
+robots to vanquish their opponents. RoboTournament features: Multiple
+Game Types: Death Match, Rally, and Capture The Flag. Multi-Player
+through TCP/IP, Six weapons including BFG, Map Editor, and a wide
+variety of board elements.</p>
+
+<p>
+<a name="ROS"></a> </p>
+</dd><dt><b>ROS</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.ros.org/wiki/">http://www.ros.org/wiki/</a></li>
+</ul>
+<p></p>
+<p>ROS is an operating system for your robot. It provides the services you
+would expect from an operating system, including hardware abstraction,
+low-level device control, implementation of commonly-used
+functionality, message-passing between processes, and package
+management. It also provides tools and libraries for obtaining,
+building, writing, and running code across multiple computers.</p>
+
+<p>
+<a name="Simbad"></a> </p>
+</dd><dt><b>Simbad</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://simbad.sourceforge.net/">http://simbad.sourceforge.net/</a></li>
+</ul>
+<p></p>
+<p>Simbad is a Java 3d robot simulator for scientific and educationnal
+purposes.  It is mainly dedicated to researchers/programmers who want
+a simple basis for studying Situated Artificial Intelligence, Machine
+Learning, and more generally AI algorithms, in the context of
+Autonomous Robotics  and  Autonomous Agents. It is not intented to
+provide a real world simulation and is kept voluntarily readable and
+simple.</p>
+<p>Simbad enables programmers to write their own robot controller, modify
+the environment and use the available sensors. Don't think of it as a
+finite product but merely as an opened framework to test your own
+ideas.</p>
+
+<p>
+<a name="SimRobot"></a> </p>
+</dd><dt><b>SimRobot</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.informatik.uni-bremen.de/simrobot/">http://www.informatik.uni-bremen.de/simrobot/</a></li>
+<li>FTP site: 
+<a href="ftp://ftp.uni-bremen.de/pub/ZKW/INFORM/simrobot/">ftp://ftp.uni-bremen.de/pub/ZKW/INFORM/simrobot/</a></li>
+</ul>
+<p></p>
+<p>SimRobot is a program for simulation of sensor based robots in a
+3D environment. It is written in C++, runs under UNIX and X11 and
+needs the graphics toolkit XView.
+</p><ul>
+<li>Simulation of robot kinematics</li>
+<li>Hierarchically built scene definition via a simple definition
+language</li>
+<li>Various sensors built in: camera, facette eye, distance
+measurement, light sensor, etc.</li>
+<li>Objects defined as polyeders</li>
+<li>Emitter abstractly defined; can be interpreted e.g. as
+light or sound</li>
+<li>Camera images computed according to the raytracing or
+Z-buffer algorithms known from computer graphics</li>
+<li>Specific sensor/motor software interface for communicating
+with the simulation</li>
+<li>Texture mapping onto the object surfaces: bitmaps in various
+formats</li>
+<li>Comprehensive visualization of the scene: wire frame w/o
+hidden lines, sensor and actor values</li>
+<li>Interactive as well as batch driven control of the agents
+and operation in the environment</li>
+<li>Collision detection</li>
+<li>Extendability with user defined object types</li>
+<li>Possible socket communication to e.g. the Khoros image
+processing software</li>
+</ul>
+<p></p>
+
+<p>
+<a name="TclRobots"></a> </p>
+</dd><dt><b>TclRobots</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.nyx.net/~tpoindex/">http://www.nyx.net/~tpoindex/</a></li>
+</ul>
+<p></p>
+<p>TclRobots is a programming game, similar to 'Core War'.  To play
+TclRobots, you must write a Tcl program that controls a robot.  The
+robot's mission is to survive a battle with other robots.  Two, three,
+or four robots compete during a battle, each running different
+programs (or possibly the same program in different robots.)  Each
+robot is equipped with a scanner, cannon, drive mechanism.  A single
+match continues until one robot is left running.  Robots may compete
+individually, or combine in a team oriented battle.  A tournament
+can be run with any number of robot programs, each robot playing every
+other in a round-robin fashion, one-on-one.  A battle simulator is
+available to help debug robot programs.</p>
+<p>The TclRobots program provides a physical environment, imposing
+certain game parameters to which all robots must adhere.  TclRobots
+also provides a view on a battle, and a controlling user interface.
+TclRobots requirements: a wish interpreter built from Tcl 7.4 and Tk
+4.0.</p>
+
+<p>
+<a name="URBI"></a> </p>
+</dd><dt><b>URBI</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.urbiforge.org/">http://www.urbiforge.org/</a></li>
+</ul>
+<p></p>
+<p>URBI is a Universal Real-time Behavior Interface and gives you a simple
+but powerful way to control any robot or complex system like a video
+game, using a convenient and easy to use scripting language that can be
+interfaced with several popular programming languages (C++, Java,
+Matlab,...) and OS (Windows, Mac OSX, Linux). URBI is based on a
+client/server architecture, which give a great deal of flexibility.
+URBI includes powerful features compared to existing scripting
+solutions: parallel execution of commands, event programming, command
+tagging, dynamic variables,... Currently, URBI is used as well by
+academic research labs, the industry and by hobbyists.</p>
+
+<p>
+<a name="VWORLD"></a> </p>
+</dd><dt><b>VWORLD</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://zhar.net/projects/vworld/">http://zhar.net/projects/vworld/</a></li>
+</ul>
+<p></p>
+<p>Vworld is a simulated environment for research with autonomous
+agents written in prolog. It is currently in something of an
+beta stage. It works well with SWI-prolog, but should work with
+Quitnus-prolog with only a few changes.  It is being designed to
+serve as an educational tool for class projects dealing with
+prolog and autonomous agents. It comes with three demo worlds or
+environments, along with sample agents for them. There are
+two versions now. One written for SWI-prolog and one written for
+LPA-prolog. Documentation is roughly done (with a
+student/professor framework in mind).</p>
+
+
+<p>
+<a name="Yampa"></a> </p>
+</dd><dt><b>Yampa</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://www.haskell.org/yampa/">http://www.haskell.org/yampa/</a></li>
+</ul>
+<p></p>
+<p>FRP system with robotics library and graphical interactive robotics
+simulator.</p>
+<p>Functional reactive programming, or FRP, is a paradigm for programming
+hybrid systems ­ i.e., systems containing a combination of both
+continuous and discrete components ­ in a high-level, declarative way.
+The key ideas in FRP are its notions of continuous, time-varying
+values, and time-ordered sequences of discrete events. Yampa is an
+instantiation of FRP as a domain-specific language embedded in Haskell.</p>
+
+<p>
+<a name="YARP"></a> </p>
+</dd><dt><b>YARP</b></dt><dd><p>
+</p><ul>
+<li>Web site: 
+<a href="http://eris.liralab.it/yarp/">http://eris.liralab.it/yarp/</a></li>
+</ul>
+<p></p>
+<p>YARP is plumbing for robot software.  It is a set of libraries,
+protocols, and tools to keep modules and devices cleanly decoupled. It
+is reluctant middleware, with no desire or expectation to be in control
+of your system.</p>
+<p>More specifically, YARP supports building a robot control system as a
+collection of programs communicating in a peer-to-peer way, with a
+family of connection types that meet the diverse, sometimes
+contradictory, and always changing needs of advanced robotics. We also
+encourage compilation and use of hardware devices in a future-proof
+way. Our strategic goal is to increase the longevity of robot software
+projects.</p>
+
+
+
+</dd></dl>
+<p></p>
+
+<hr>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-7.html">Next</a>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO-5.html">Previous</a>
+<a href="http://www.tldp.org/HOWTO/AI-Alife-HOWTO.html#toc6">Contents</a>
+
+
+</body></html>

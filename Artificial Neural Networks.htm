@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0067)http://osp.mans.edu.eg/rehan/ann/Artificial%20Neural%20Networks.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Artificial Neural Networks</title>
+
+<meta content="Artificial Neural Networks: What are they? How do they work? In what areas are they used?" name="description">
+<meta content="Daniel Klerfors, AI, artificial intelligence, computure science, neural networks, Artificial Neural Networks, learning systems, learning laws" name="keywords">
+<meta content="MSHTML 6.00.2800.1264" name="GENERATOR"></head>
+<body link="#0000ff"><font face="Arial" size="4"><b>
+<blockquote>
+  <table height="74" cellpadding="0" width="100%" border="0">
+    <tbody>
+    <tr>
+      <td width="16%" height="68"><img height="102" alt="Slulogo.gif (5591 bytes)" src="./Artificial Neural Networks_files/Slulogo.gif" width="96"></td>
+      <td width="43%" height="68"><strong>SAINT LOUIS 
+        UNIVERSITY</strong><b><br><font face="Arial" size="2">SCHOOL OF 
+        BUSINESS &amp; ADMINISTRATION</font><font face="Arial" size="4"></font></b></td>
+      <td width="41%" height="68">
+        <table height="76" width="81%" border="1">
+          <tbody>
+          <tr>
+            <td width="100%" height="70"><strong><font face="Arial" size="1">An 
+              individual project within 
+              MISB-420-0<br>Author:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Daniel Klerfors&nbsp;&nbsp;&nbsp; <br>Professor:&nbsp; Dr Terry L. 
+              Huston<br>St.Louis November 
+        1998</font></strong></td></tr></tbody></table></td></tr></tbody></table></blockquote>
+<hr>
+
+<blockquote>
+  <p align="center"><font face="Arial" size="5"><big><big>Artificial Neural 
+  Networks<br></big></big></font><em><font face="Arial" size="3">What are 
+  they?<br>How do they work?<br>In what areas are they 
+used?</font></em></p></blockquote>
+<hr>
+
+<p><font face="Arial" size="5">Table of contence </font></p>
+</b></font><b></b><p align="justify"><b><font face="Arial" size="4">1. <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#1 Purpose">Purpose</a> 
+</font></b></p>
+<dir><font face="Arial">
+</font><p><font face="Arial">1.1<a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#1.1 Method"> Method 
+</a></font></p></dir><font face="Arial" size="4"><b>
+</b></font><p><font face="Arial" size="4"><b>2. What are Artificial Neural Networks? </b></font>
+</p><dir><font face="Arial">
+</font><p><font face="Arial">2.1 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.1 The Analogy to the Brain">The 
+Analogy to the Brain</a></font>
+</p><dir><font face="Arial">
+</font><p><font face="Arial">2.1.1 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.1.1 The Biological Neuron">The 
+Biological Neuron</a></font> </p>
+<p><font face="Arial">2.1.2 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.1.2 The Artificial Neuron">The 
+Artificial Neuron</a></font><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.1.2 The Artificial Neuron"> </a></p></dir><font face="Arial">
+</font><p><font face="Arial">2.2 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2 Design">Design</a></font>
+</p><dir><font face="Arial">
+</font><p><font face="Arial">2.2.1 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.1 Layers">Layers</a></font><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.1 Layers"> 
+</a></p>
+<p><font face="Arial">2.2.2 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.2 Communication and types">Communication 
+and types of connections</a></font>
+</p><dir><font face="Arial" size="2">
+</font><p><font face="Arial" size="2">2.2.2.1 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.2.1 Inter-layer connections">Inter-layer 
+connections</a></font><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.2.1 Inter-layer connections"> </a></p>
+<p><font face="Arial" size="2">2.2.2.2 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.2.2 Intra-layer connections">Intra-layer 
+connections</a></font><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.2.2 Intra-layer connections"> </a></p></dir><font face="Arial">
+</font><p><font face="Arial">2.2.3 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.3 Learning">Learning</a></font>
+</p><dir><font face="Arial" size="2">
+</font><p><font face="Arial" size="2">2.2.3.1 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.3.1 Off-line or On-line">Off-line 
+or On-line</a></font><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.3.1 Off-line or On-line"> </a></p>
+<p><font face="Arial" size="2">2.2.3.2 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.2.3.2 Learning laws">Learning 
+laws </a></font></p></dir></dir><font face="Arial">
+</font><p><font face="Arial">2.3 <a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#2.3 Where are Neural Networks being used?">Where 
+are Neural Networks being used? </a></font></p></dir><font face="Arial" size="4"><b>
+</b></font><p><font face="Arial" size="4"><b><a href="http://hem.hj.se/~de96klda/NeuralNetworks.htm#References">References 
+</a></b></font><font face="Garamond"></font></p><font face="Garamond">
+<hr>
+
+<p><a name="1 Purpose"><font face="Arial" size="5"><b>1 Purpose</b></font></a> 
+</p><ol>
+  <p align="justify">This report is intended to review and help the reader 
+  understand what Artificial Neural Networks are, how they work, and where they 
+  are currently being used. This project is a result of an assignment in AI. The 
+  report is a non-technical report, thereby it does not go into depth with 
+  mathematical formulas, but tries to give a more general understanding</p></ol>
+<p><font face="Arial" size="4"><b><a name="1.1 Method">1.1 Method </a></b></font>
+</p><ol>
+  <p align="justify">To achieve the objectives with this report, the report is 
+  done by a descriptive approach. The data used in this report is secondary data 
+  gained by studying, reviewing books, Internet publications, and information 
+  gained in AI-lectures taught by Dr. Terry L. Huston.</p></ol>
+</font><p><font face="Garamond"></font><font face="Arial" size="5"><b><a name="2 What are Artificial Neural Networks?">2 What are Artificial Neural 
+Networks?</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="left">Artificial Neural Network is a system loosely modeled on the 
+  human brain. The field goes by many names, such as connectionism, parallel 
+  distributed processing, neuro-computing, natural intelligent systems, machine 
+  learning algorithms, and artificial neural networks. It is an attempt to 
+  simulate within specialized hardware or sophisticated software, the multiple 
+  layers of simple processing elements called neurons. Each neuron is linked to 
+  certain of its neighbors with varying coefficients of connectivity that 
+  represent the strengths of these connections. Learning is accomplished by 
+  adjusting these strengths to cause the overall network to output appropriate 
+  results.</p></font></blockquote><font face="Garamond">
+</font><p><font face="Garamond"></font><font face="Arial" size="4"><b><a name="2.1 The Analogy to the Brain">2.1 
+The Analogy to the Brain</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="left">The most basic components of neural networks are modeled after 
+  the structure of the brain. Some neural network structures are not closely to 
+  the brain and some does not have a biological counterpart in the brain. 
+  However, neural networks have a strong similarity to the biological brain and 
+  therefore a great deal of the terminology is borrowed from 
+  neuroscience.</p></font></blockquote><font face="Garamond">
+</font><p><font face="Garamond"></font><font face="Arial"><b><a name="2.1.1 The Biological Neuron">2.1.1 The 
+Biological Neuron</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="justify">The most basic element of the human brain is a specific type 
+  of cell, which provides us with the abilities to remember, think, and apply 
+  previous experiences to our every action. These cells are known as neurons, 
+  each of these neurons can connect with up to 200000 other neurons. The power 
+  of the brain comes from the numbers of these basic components and the multiple 
+  connections between them.</p>
+  <p align="justify">All natural neurons have four basic components, which are 
+  dendrites, soma, axon, and synapses. Basically, a biological neuron receives 
+  inputs from other sources, combines them in some way, performs a generally 
+  nonlinear operation on the result, and then output the final result. The 
+  figure below shows a simplified biological neuron and the relationship of its 
+  four components.</p>
+  <p align="justify"><img height="279" alt="BNeuron.gif (3546 bytes)" src="./Artificial Neural Networks_files/BNeuron.gif" width="370"></p></font></blockquote><font face="Garamond">
+</font><p><font face="Garamond"></font><font face="Arial"><b><a name="2.1.2 The Artificial Neuron">2.1.2 The 
+Artificial Neuron</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="justify">The basic unit of neural networks, the artificial neurons, 
+  simulates the four basic functions of natural neurons. Artificial neurons are 
+  much simpler than the biological neuron; the figure below shows the basics of 
+  an artificial neuron. </p><font face="Garamond" size="2">
+  <p align="justify"><img height="302" alt="ANeuron.gif (3594 bytes)" src="./Artificial Neural Networks_files/ANeuron.gif" width="474"></p></font>
+  <p align="justify">Note that various inputs to the network are represented by 
+  the mathematical symbol, x(n). Each of these inputs are multiplied by a 
+  connection weight, these weights are represented by w(n). In the simplest 
+  case, these products are simply summed, fed through a transfer function to 
+  generate a result, and then output.</p>
+  <p align="justify">Even though all artificial neural networks are constructed 
+  from this basic building block the fundamentals may vary in these building 
+  blocks and there are differences. </p></font></blockquote><font face="Garamond">
+</font><p><font face="Garamond"></font><font face="Arial" size="4"><b><a name="2.2 Design">2.2 
+Design</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="justify">The developer must go through a period of trial and error in 
+  the design decisions before coming up with a satisfactory design. The design 
+  issues in neural networks are complex and are the major concerns of system 
+  developers. </p><b>
+  <p align="justify">Designing a neural network consist of:</p>
+  </b><ul><b></b>
+    <li>Arranging neurons in various layers. 
+    </li><li>Deciding the type of connections among neurons for different layers, as 
+    well as among the neurons within a layer. 
+    </li><li>Deciding the way a neuron receives input and produces output. 
+    </li><li>Determining the strength of connection within the network by allowing 
+    the network learn the appropriate values of connection weights by using a 
+    training data set. </li></ul>
+  <p align="justify">The process of designing a neural network is an iterative 
+  process; the figure below describes its basic 
+steps.</p></font></blockquote><b><font face="Garamond">
+</font><p><font face="Garamond"></font><font face="Arial"><a name="2.2.1 Layers">2.2.1 
+Layers</a></font></p></b>
+<blockquote><font face="Garamond">
+  <p align="justify">Biologically, neural networks are constructed in a three 
+  dimensional way from microscopic components. These neurons seem capable of 
+  nearly unrestricted interconnections. This is not true in any man-made 
+  network. Artificial neural networks are the simple clustering of the primitive 
+  artificial neurons. This clustering occurs by creating layers, which are then 
+  connected to one another. How these layers connect may also vary. Basically, 
+  all artificial neural networks have a similar structure of topology. Some of 
+  the neurons interface the real world to receive its inputs and other neurons 
+  provide the real world with the network’s outputs. All the rest of the neurons 
+  are hidden form view. </p><font face="Garamond" size="2">
+  <p align="justify"><img height="260" alt="Layers.gif (3872 bytes)" src="./Artificial Neural Networks_files/Layers.gif" width="390"></p></font>
+  <p align="justify">As the figure above shows, the neurons are grouped into 
+  layers The input layer consist of neurons that receive input form the external 
+  environment. The output layer consists of neurons that communicate the output 
+  of the system to the user or external environment. There are usually a number 
+  of hidden layers between these two layers; the figure above shows a simple 
+  structure with only one hidden layer. </p>
+  <p align="justify">When the input layer receives the input its neurons produce 
+  output, which becomes input to the other layers of the system. The process 
+  continues until a certain condition is satisfied or until the output layer is 
+  invoked and fires their output to the external environment.</p>
+  <p align="justify">To determine the number of hidden neurons the network should 
+  have to perform its best, one are often left out to the method trial and 
+  error. If you increase the hidden number of neurons too much you will get an 
+  over fit, that is the net will have problem to generalize. The training set of 
+  data will be memorized, making the network useless on new data 
+sets.</p></font></blockquote><font face="Arial" size="3"><b>
+<p><a name="2.2.2 Communication and types">2.2.2 Communication and types of 
+connections</a></p>
+</b></font><blockquote><font face="Arial" size="3"><b>
+  </b></font><p align="justify"><font face="Arial" size="3"><b></b></font><font size="3"><font face="Garamond">Neurons are 
+  connected via a network of paths carrying the output of one neuron as input to 
+  another neuron. These paths is normally unidirectional, there might however be 
+  a two-way connection between two neurons, because there may be an another path 
+  in reverse direction. A neuron receives input from many neurons, but produce a 
+  single output, which is communicated to other neurons. </font></font></p><font size="3">
+  </font><p align="justify"><font size="3"><font face="Garamond">The neuron in a layer may communicate 
+  with each other, or they may not have any connections. The neurons of one 
+  layer are always connected to the neurons of at least another layer. 
+  </font></font><b><font face="Arial" size="3"></font></b></p></blockquote><b><font face="Arial" size="3">
+</font><p><font face="Arial" size="3"></font><font face="Garamond"><a name="2.2.2.1 Inter-layer connections"><font size="3">2.2.2.1 </font><font face="Arial" size="3">Inter-layer 
+connections</font></a></font></p></b><font face="Garamond">
+<blockquote>
+  <p align="justify">There are different types of connections used between layers, 
+  these connections between layers are called inter-layer connections.</p>
+  <ul><b>
+    </b><li><b>Fully connected</b><br>Each neuron on the first layer is connected to 
+    every neuron on the second layer. <b>
+    </b></li><li><b>Partially connected</b><br>A neuron of the first layer does not have to 
+    be connected to all neurons on the second layer. <b>
+    </b></li><li><b>Feed forward</b><br>The neurons on the first layer send their output to 
+    the neurons on the second layer, but they do not receive any input back form 
+    the neurons on the second layer. <b>
+    </b></li><li><b>Bi-directional</b><br>There is another set of connections carrying the 
+    output of the neurons of the second layer into the neurons of the first 
+    layer. </li></ul>
+  <p>Feed forward and bi-directional connections could be fully- or partially 
+  connected. 
+  </p><ul><b>
+    </b><li><b>Hierarchical</b><br>If a neural network has a hierarchical structure, 
+    the neurons of a lower layer may only communicate with neurons on the next 
+    level of layer. <b>
+    </b></li><li><b>Resonance<br></b>The layers have bi-directional connections, and they 
+    can continue sending messages across the connections a number of times until 
+    a certain condition is achieved. </li></ul></blockquote>
+<p><b><a name="2.2.2.2 Intra-layer connections"><font size="3">2.2.2.2 
+</font><font face="Garamond" size="3">Intra-layer connections</font></a></b></p>
+<blockquote>
+  <p>In more complex structures the neurons communicate among themselves within 
+  a layer, this is known as intra-layer connections. There are two types of 
+  intra-layer connections. 
+  </p><ul><b>
+    </b><li><b>Recurrent<br></b>The neurons within a layer are fully- or partially 
+    connected to one another. After these neurons receive input form another 
+    layer, they communicate their outputs with one another a number of times 
+    before they are allowed to send their outputs to another layer. Generally 
+    some conditions among the neurons of the layer should be achieved before 
+    they communicate their outputs to another layer. <b>
+    </b></li><li><b>On-center/off surround<br></b>A neuron within a layer has excitatory 
+    connections to itself and its immediate neighbors, and has inhibitory 
+    connections to other neurons. One can imagine this type of connection as a 
+    competitive gang of neurons. Each gang excites itself and its gang members 
+    and inhibits all members of other gangs. After a few rounds of signal 
+    interchange, the neurons with an active output value will win, and is 
+    allowed to update its and its gang member’s weights. (There are two types of 
+    connections between two neurons, excitatory or inhibitory. In the excitatory 
+    connection, the output of one neuron increases the action potential of the 
+    neuron to which it is connected. When the connection type between two 
+    neurons is inhibitory, then the output of the neuron sending a message would 
+    reduce the activity or action potential of the receiving neuron. One causes 
+    the summing mechanism of the next neuron to add while the other causes it to 
+    subtract. One excites while the other inhibits.) </li></ul></blockquote>
+<p><b><a name="2.2.3 Learning">2.2.3 Learning</a></b></p>
+<blockquote>
+  <p>The brain basically learns from experience. Neural networks are sometimes 
+  called machine learning algorithms, because changing<b> </b>of its connection 
+  weights (training) causes the network to learn the solution to a problem. The 
+  strength of connection between the neurons is stored as a weight-value for the 
+  specific connection. The system learns new knowledge by adjusting these 
+  connection weights.</p>
+  <p align="justify">The learning ability of a neural network is determined by its 
+  architecture and by the algorithmic method chosen for training. </p>
+  <p align="justify">The training method usually consists of one of three 
+  schemes:</p>
+  <ol>
+    <li><b>Unsupervised learning<br></b>The hidden neurons must find a way to 
+    organize themselves without help from the outside. In this approach, no 
+    sample outputs are provided to the network against which it can measure its 
+    predictive performance for a given vector of inputs. This is learning by 
+    doing. 
+    </li><li><b>Reinforcement learning<br></b>This method works on reinforcement from 
+    the outside. The connections among the neurons in the hidden layer are 
+    randomly arranged, then reshuffled as the network is told how close it is to 
+    solving the problem. Reinforcement learning is also called supervised 
+    learning, because it requires a teacher. The teacher may be a training set 
+    of data or an observer who grades the performance of the network results. 
+    <p>Both unsupervised and reinforcement suffer from relative slowness and 
+    inefficiency relying on a random shuffling to find the proper connection 
+    weights.</p>
+    </li><li><b>Back propagation<br></b>This method is proven highly successful in 
+    training of multilayered neural nets. The network is not just given 
+    reinforcement for how it is doing on a task. Information about errors is 
+    also filtered back through the system and is used to adjust the connections 
+    between the layers, thus improving performance. A form of supervised 
+    learning. </li></ol></blockquote>
+</font><p><font face="Garamond"></font><font face="Arial" size="3"><b><a name="2.2.3.1 Off-line or On-line">2.2.3.1 Off-line or 
+On-line</a></b></font></p>
+<blockquote><font face="Garamond">
+  <p align="justify">One can categorize the learning methods into yet another 
+  group, off-line or on-line. When the system uses input data to change its 
+  weights to learn the domain knowledge, the system could be in training mode or 
+  learning mode. When the system is being used as a decision aid to make 
+  recommendations, it is in the operation mode, this is also sometimes called 
+  recall.</p>
+  <ul><b>
+    </b><li><b>Off-line<br></b>In the off-line learning methods, once the systems 
+    enters into the operation mode, its weights are fixed and do not change any 
+    more. Most of the networks are of the off-line learning type. </li></ul>
+  <ul><b>
+    </b><li><b>On-line<br></b>In on-line or real time learning, when the system is in 
+    operating mode (recall), it continues to learn while being used as a 
+    decision tool. This type of learning has a more complex design structure. 
+    </li></ul></font></blockquote><font face="Garamond">
+<p><b><a name="2.2.3.2 Learning laws"><font size="3">2.2.3.2 </font><font face="Garamond" size="3">Learning laws</font></a></b></p>
+<blockquote>
+  <p align="justify">There are a variety of learning laws which are in common use. 
+  These laws are mathematical algorithms used to update the connection weights. 
+  Most of these laws are some sort of variation of the best known and oldest 
+  learning law, Hebb’s Rule. Man’s understanding of how neural processing 
+  actually works is very limited. Learning is certainly more complex than the 
+  simplification represented by the learning laws currently developed. Research 
+  into different learning functions continues as new ideas routinely show up in 
+  trade publications etc. A few of the major laws are given as an example 
+  below.</p>
+  <ul><b>
+    </b><li><b>Hebb’s Rule<br></b>The first and the best known learning rule was 
+    introduced by Donald Hebb. The description appeared in his book <i>The 
+    organization of Behavior</i> in 1949. This basic rule is: If a neuron 
+    receives an input from another neuron, and if both are highly active 
+    (mathematically have the same sign), the weight between the neurons should 
+    be strengthened. <b>
+    </b></li><li><b>Hopfield Law<br></b>This law is similar to Hebb’s Rule with the 
+    exception that it specifies the magnitude of the strengthening or weakening. 
+    It states, "if the desired output and the input are both active or both 
+    inactive, increment the connection weight by the learning rate, otherwise 
+    decrement the weight by the learning rate." (Most learning functions have 
+    some provision for a learning rate, or a learning constant. Usually this 
+    term is positive and between zero and one.) <b>
+    </b></li><li><b>The Delta Rule<br></b>The Delta Rule is a further variation of Hebb’s 
+    Rule, and it is one of the most commonly used. This rule is based on the 
+    idea of continuously modifying the strengths of the input connections to 
+    reduce the difference (the delta) between the desired output value and the 
+    actual output of a neuron. This rule changes the connection weights in the 
+    way that minimizes the mean squared error of the network. The error is back 
+    propagated into previous layers one layer at a time. The process of 
+    back-propagating the network errors continues until the first layer is 
+    reached. The network type called Feed forward, Back-propagation derives its 
+    name from this method of computing the error term.<br>This rule is also 
+    referred to as the Windrow-Hoff Learning Rule and the Least Mean Square 
+    Learning Rule. <b>
+    </b></li><li><b>Kohonen’s Learning Law</b><br>This procedure, developed by Teuvo 
+    Kohonen, was inspired by learning in biological systems. In this procedure, 
+    the neurons compete for the opportunity to learn, or to update their 
+    weights. The processing neuron with the largest output is declared the 
+    winner and has the capability of inhibiting its competitors as well as 
+    exciting its neighbors. Only the winner is permitted output, and only the 
+    winner plus its neighbors are allowed to update their connection weights. 
+    <br><br>The Kohonen rule does not require desired output. Therefor it is 
+    implemented in the unsupervised methods of learning. Kohonen has used this 
+    rule combined with the on-center/off-surround intra- layer connection 
+    (discussed earlier under 2.2.2.2) to create the self-organizing neural 
+    network, which has an unsupervised learning method.<br><br>On this Internet 
+    site by Sue Becker you may see an interactive demonstration of a Kohonen 
+    network, which may give you a better understanding. </li></ul>
+  <p>http://www.psychology.mcmaster.ca/4i03/competitive-demo.html 
+</p></blockquote>
+<p><b><a name="2.3 Where are Neural Networks being used?"><font size="4">2.3 
+</font><font face="Garamond" size="4">Where are Neural Networks being 
+used?</font></a></b></p>
+</font><blockquote><font face="Garamond">
+  <p>Neural networks are performing successfully where other methods do not, 
+  recognizing and matching complicated, vague, or incomplete patterns. Neural 
+  networks have been applied in solving a wide variety of problems.</p>
+  <p>The most common use for neural networks is to project what will most likely 
+  happen. There are many areas where prediction can help in setting priorities. 
+  For example, the emergency room at a hospital can be a hectic place, to know 
+  who needs the most critical help can enable a more successful operation. 
+  Basically, all organizations must establish priorities, which govern the 
+  allocation of their resources. Neural networks have been used as a mechanism 
+  of knowledge acquisition for expert system in stock market forecasting with 
+  astonishingly accurate results. Neural networks have also been used for 
+  bankruptcy prediction for credit card institutions.</p>
+  <p>Although one may apply neural network systems for interpretation, 
+  prediction, diagnosis, planing, monitoring, debugging, repair, instruction, 
+  and control, the most successful applications of neural networks are in 
+  categorization and pattern recognition. Such a system classifies the object 
+  under investigation (e.g. an illness, a pattern, a picture, a chemical 
+  compound, a word, the financial profile of a customer) as one of numerous 
+  possible categories that, in return, may trigger the recommendation of an 
+  action (such as a treatment plan or a financial plan.</p>
+  <p>A company called Nestor, have used neural network for financial risk 
+  assessment for mortgage insurance decisions, categorizing the risk of loans as 
+  good or bad. Neural networks has also been applied to convert text to speech, 
+  NETtalk is one of the systems developed for this purpose. Image processing and 
+  pattern recognition form an important area of neural networks, probably one of 
+  the most actively research areas of neural networks.</p>
+  <p>An other of research for application of neural networks is character 
+  recognition and handwriting recognition. This area has use in banking, credit 
+  card processing and other financial services, where reading and correctly 
+  recognizing handwriting on documents is of crucial significance. The pattern 
+  recognition capability of neural networks has been used to read handwriting in 
+  processing checks, the amount must normally be entered into the system by a 
+  human. A system that could automate this task would expedite check processing 
+  and reduce errors. One such system has been developed by HNC (Hecht-Nielsen 
+  Co.) for BankTec. </p>
+  <p>One of the best known applications is the bomb detector installed in some 
+  U.S. airports. This device called SNOOPE, determine the presence of certain 
+  compounds from the chemical configurations of their components.</p>
+  <p>In a document from International Joint conference, one can find reports on 
+  using neural networks in areas ranging from robotics, speech, signal 
+  processing, vision, character recognition to musical composition, detection of 
+  heart malfunction and epilepsy, fish detection and classification, 
+  optimization, and scheduling. One may take under consideration that most of 
+  the reported applications are still in research stage.</p>
+  <p>Basically, most applications of neural networks fall into the following 
+  five categories: 
+  </p></font><ul><font face="Garamond"><b>
+    </b><li><b>Prediction<br></b>Uses input values to predict some output. e.g. pick 
+    the best stocks in the market, predict weather, identify people with cancer 
+    risk. <b>
+    </b></li><li><b>Classification<br></b>Use input values to determine the classification. 
+    e.g. is the input the letter A, is the blob of the video data a plane and 
+    what kind of plane is it. <b>
+    </b></li><li><b>Data association<br></b>Like classification but it also recognizes data 
+    that contains errors. e.g. not only identify the characters that were 
+    scanned but identify when the scanner is not working properly. <b>
+    </b></li><li><b>Data Conceptualization<br></b>Analyze the inputs so that grouping 
+    relationships can be inferred. e.g. extract from a database the names of 
+    those most likely to by a particular product. <b>
+    </b></li></font><li><font face="Garamond"><b>Data Filtering<br></b>Smooth an input signal. e.g. take the noise out of 
+    a telephone signal.</font><font face="Garamond"> </font></li></ul><font face="Garamond">
+  <hr>
+</font></blockquote><font face="Arial" size="5"><b>
+<p><a name="References">References</a></p></b></font>
+<blockquote><font face="Garamond">
+  <p align="justify">Data &amp; Analysis Center for Software, "Artificial Neural 
+  Networks Technology", 1992 
+  (http://www.dacs.dtic.mil/techs/neural/neural.title.html, printed November 
+  1998)</p>
+  <p align="justify">Avelino J. Gonzalez &amp; Douglas D. Dankel, "The Engineering 
+  of Knowledge-based Systems", 1993 Prentice-Hall Inc. ISBN 0-13-334293-X.</p>
+  <p align="justify">Fatemeh Zahedi, "Intelligent Systems for Business: Expert 
+  Systems with Neural networks, 1993 Wadsworth Inc. ISBN 0-534-18888-5.</p>
+  <p align="justify">Haykin Simon, "Neural Networks", 1994 Macmillan College 
+  Publishing Company Inc. ISBN 0-02-352761-7</p></font></blockquote>
+</body></html>
